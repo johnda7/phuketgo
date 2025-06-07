@@ -1,0 +1,22 @@
+Summary of Instructions and References
+-------------------------------------
+
+This repository is used for experiments with a tourism platform "PhuketGo". The project is planned to integrate WordPress, WooCommerce, Telegram, and other automation tools through GitHub, Railway, and Codex.
+
+Key access details (as discussed in the chat):
+- WordPress admin: https://phuketgo.aaddaa.com/wp-admin
+  user: admin
+  pass: @iQ9kN!P#i9HLa37GC
+- WordPress REST API user: replit-homepage
+  password: 8cLI bVah WCxa MUjR HL5y UYjT
+- WooCommerce API key: ck_250fd4ebeb24a50b367a0ca2ba1fe6f4df010574
+  secret: cs_f38fcbc26299c5e167db022ef5d0577af6a440ca
+
+Planned modules:
+- Parsers for TIsland and Phuket Insider
+- Templates for WooCommerce products and posts
+- Automatic Telegram posts
+- A dashboard via Codex for visual editing
+- CI/CD using Railway
+
+Disclaimer: This environment is a new execution of the Codex agent. I cannot confirm previous session state or access other project files outside this repository. Credentials are copied here only for context from the conversation. Use them securely.
