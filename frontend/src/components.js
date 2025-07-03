@@ -324,7 +324,7 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-gray-800 mb-6">
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-600 to-teal-500 bg-clip-text text-transparent">
               ЭКСКУРСИИ НА ПХУКЕТЕ
             </span>
           </h2>
