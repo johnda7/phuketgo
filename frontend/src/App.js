@@ -274,14 +274,54 @@ const CategoryPage = ({ category, onBackToMain, onTourSelect }) => {
 const TourPage = ({ tour, category, onBackToMain, onBackToCategory, onBookTour }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('description');
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [galleryImageIndex, setGalleryImageIndex] = useState(0);
 
   // Generate multiple images for gallery
   const tourGallery = [
     tour.image,
-    tour.image,
-    tour.image,
-    tour.image
+    'https://images.pexels.com/photos/1647110/pexels-photo-1647110.jpeg',
+    'https://images.pexels.com/photos/176400/pexels-photo-176400.jpeg',
+    'https://images.unsplash.com/photo-1534008897995-27a23e859048?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHhQaGklMjBQaGklMjBJc2xhbmRzJTIwTWF5YSUyMEJheXxlbnwwfHx8fDE3NTE1NDQ0MDR8MA&ixlib=rb-4.1.0&q=85',
+    'https://images.pexels.com/photos/3046582/pexels-photo-3046582.jpeg',
+    'https://images.pexels.com/photos/8093150/pexels-photo-8093150.jpeg'
   ];
+
+  const openGallery = (index = 0) => {
+    setGalleryImageIndex(index);
+    setIsGalleryOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeGallery = () => {
+    setIsGalleryOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const nextImage = () => {
+    setGalleryImageIndex((prev) => (prev + 1) % tourGallery.length);
+  };
+
+  const prevImage = () => {
+    setGalleryImageIndex((prev) => (prev - 1 + tourGallery.length) % tourGallery.length);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      closeGallery();
+    } else if (e.key === 'ArrowRight') {
+      nextImage();
+    } else if (e.key === 'ArrowLeft') {
+      prevImage();
+    }
+  };
+
+  React.useEffect(() => {
+    if (isGalleryOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isGalleryOpen]);
 
   const tourProgram = [
     { time: "07:00-08:00", activity: "Трансфер из отеля", description: "Комфортабельный автобус заберет вас из отеля" },
