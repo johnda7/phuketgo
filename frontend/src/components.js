@@ -65,8 +65,10 @@ export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect, select
           
           {/* Phone */}
           <div className="hidden md:block text-center">
-            <p className="text-lg font-bold text-gray-800">+66 61 949 03 49</p>
-            <p className="text-xs text-cyan-600">24/7</p>
+            <a href="tel:+66619490349" className="block hover:opacity-80 transition-opacity">
+              <p className="text-lg font-bold text-gray-800">+66 61 949 03 49</p>
+              <p className="text-xs text-cyan-600">24/7</p>
+            </a>
           </div>
           
           {/* Mobile Menu Button */}
