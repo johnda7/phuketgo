@@ -12,9 +12,7 @@ import {
   PricesPage,
   ReviewsPage,
   ThreeStepsSection,
-  FloatingContactWidget,
-  WeatherWidget,
-  CurrencyWidget
+  FloatingContactWidget
   // The following components are not exported from components.js:
   // InteractiveMap,
   // ComparisonWidget,
