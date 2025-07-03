@@ -1035,3 +1035,136 @@ export const Footer = () => {
     </footer>
   );
 };
+
+// Floating Contact Widget Component
+export const FloatingContactWidget = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="fixed bottom-6 left-6 z-50">
+      <div className="relative">
+        {/* Main Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-110 flex items-center justify-center text-white text-2xl animate-pulse"
+        >
+          💬
+        </button>
+        
+        {/* Contact Options */}
+        {isOpen && (
+          <div className="absolute bottom-20 left-0 space-y-3 animate-fadeInUp">
+            <a
+              href="https://t.me/+qkhh55Ozg6gxY2Y1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-3 bg-blue-500 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105"
+            >
+              <span>📱</span>
+              <span className="font-medium">Telegram</span>
+            </a>
+            
+            <a
+              href="https://wa.me/66949752466"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-3 bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-green-600 transition-all transform hover:scale-105"
+            >
+              <span>📱</span>
+              <span className="font-medium">WhatsApp</span>
+            </a>
+            
+            <a
+              href="tel:+66949752466"
+              className="flex items-center space-x-3 bg-orange-500 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105"
+            >
+              <span>📞</span>
+              <span className="font-medium">Позвонить</span>
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// Weather Widget Component
+export const WeatherWidget = () => {
+  const [weather, setWeather] = useState({
+    temp: 32,
+    condition: 'sunny',
+    humidity: 75,
+    wind: 12
+  });
+
+  return (
+    <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
+      <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
+        <span className="mr-2">🌤️</span>
+        Погода в Пхукете
+      </h3>
+      
+      <div className="space-y-4">
+        <div className="text-center">
+          <div className="text-4xl mb-2">☀️</div>
+          <div className="text-3xl font-bold text-cyan-600">{weather.temp}°C</div>
+          <div className="text-gray-600">Солнечно</div>
+        </div>
+        
+        <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="flex items-center">
+            <span className="mr-2">💧</span>
+            <span>Влажность: {weather.humidity}%</span>
+          </div>
+          <div className="flex items-center">
+            <span className="mr-2">🌊</span>
+            <span>Ветер: {weather.wind} км/ч</span>
+          </div>
+        </div>
+        
+        <div className="bg-cyan-50 rounded-lg p-3 text-center">
+          <p className="text-cyan-800 text-sm font-medium">
+            🌊 Отличная погода для экскурсий!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Currency Widget Component
+export const CurrencyWidget = () => {
+  const [rates, setRates] = useState({
+    usd: 36.2,
+    eur: 38.8,
+    rub: 0.38
+  });
+
+  return (
+    <div className="bg-white rounded-2xl shadow-lg p-6">
+      <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
+        <span className="mr-2">💱</span>
+        Курс валют
+      </h3>
+      
+      <div className="space-y-3">
+        <div className="flex justify-between items-center">
+          <span className="text-gray-600">1 USD</span>
+          <span className="font-semibold text-cyan-600">{rates.usd}฿</span>
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="text-gray-600">1 EUR</span>
+          <span className="font-semibold text-cyan-600">{rates.eur}฿</span>
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="text-gray-600">1 RUB</span>
+          <span className="font-semibold text-cyan-600">{rates.rub}฿</span>
+        </div>
+        
+        <div className="border-t pt-3 text-xs text-gray-500 text-center">
+          Обновлено: {new Date().toLocaleDateString('ru-RU')}
+        </div>
+      </div>
+    </div>
+  );
+};
