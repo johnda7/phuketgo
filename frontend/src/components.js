@@ -129,27 +129,43 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       tours: [
         {
           title: 'Острова Пхи-Пхи на спидботе',
-          description: 'Посетите знаменитые острова Пхи-Пхи, включая залив Майя Бэй',
+          description: 'Посетите знаменитые острова Пхи-Пхи, включая культовый залив Майя Бэй из фильма "Пляж" с Леонардо Ди Каприо. Насладитесь кристально чистой водой, белоснежными пляжами и невероятными видами.',
           price: '2,500₽',
           duration: '8 часов',
+          groupSize: 'До 15 человек',
           image: 'https://images.pexels.com/photos/1647110/pexels-photo-1647110.jpeg',
-          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снаряжение для снорклинга', 'Гид']
+          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снаряжение для снорклинга', 'Профессиональный гид', 'Спасательные жилеты', 'Страховка'],
+          highlights: ['Залив Майя Бэй', 'Пещера Викингов', 'Бухта Лох Самах', 'Остров Бамбу', 'Снорклинг с тропическими рыбками']
         },
         {
           title: 'Остров Джеймса Бонда',
-          description: 'Экскурсия к легендарному острову из фильма о Джеймсе Бонде',
+          description: 'Экскурсия к легендарному острову Ко Тапу из фильма о Джеймсе Бонде "Человек с золотым пистолетом". Исследуйте залив Панг-Нга с его удивительными известняковыми скалами и плавучей деревней.',
           price: '2,200₽',
           duration: '7 часов',
+          groupSize: 'До 12 человек',
           image: 'https://images.pexels.com/photos/6437646/pexels-photo-6437646.jpeg',
-          includes: ['Трансфер из отеля', 'Обед', 'Каякинг', 'Посещение деревни на воде']
+          includes: ['Трансфер из отеля', 'Обед', 'Каякинг', 'Посещение деревни на воде', 'Гид', 'Страховка'],
+          highlights: ['Остров Ко Тапу', 'Каякинг в пещерах', 'Деревня Панйи', 'Мангровые леса', 'Известняковые скалы']
         },
         {
           title: 'Симиланские острова',
-          description: 'Одни из самых красивых островов в мире для снорклинга',
+          description: 'Одни из самых красивых островов в мире для снорклинга и дайвинга. Национальный парк Симилан известен своими коралловыми рифами, белоснежными пляжами и невероятно прозрачной водой.',
           price: '3,200₽',
           duration: '12 часов',
+          groupSize: 'До 20 человек',
           image: 'https://images.pexels.com/photos/18277777/pexels-photo-18277777.jpeg',
-          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снорклинг', 'Национальный парк']
+          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снорклинг', 'Билет в национальный парк', 'Гид', 'Маски и ласты'],
+          highlights: ['9 необитаемых островов', 'Коралловые рифы', 'Тропические рыбы', 'Черепахи', 'Sailing Rock']
+        },
+        {
+          title: 'Острова Краби на спидботе',
+          description: 'Захватывающая экскурсия к четырем островам провинции Краби: Пода, Чикен, Тап и Прананг. Насладитесь снорклингом, пляжами и невероятными пейзажами.',
+          price: '2,800₽',
+          duration: '8 часов',
+          groupSize: 'До 15 человек',
+          image: 'https://images.unsplash.com/photo-1534008897995-27a23e859048?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxQaGklMjBQaGklMjBJc2xhbmRzJTIwTWF5YSUyMEJheXxlbnwwfHx8fDE3NTE1NDQ0MDR8MA&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снорклинг', 'Каякинг', 'Гид', 'Безлимитные напитки'],
+          highlights: ['Остров Пода', 'Пляж Прананг', 'Остров Чикен', 'Коса Тап', 'Пещеры и лагуны']
         }
       ]
     },
@@ -160,19 +176,33 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       tours: [
         {
           title: 'Сафари на слонах',
-          description: 'Прогулка на слонах по джунглям Таиланда',
+          description: 'Незабываемое приключение в джунглях Таиланда. Прогулка на слонах по тропическому лесу, посещение водопадов и знакомство с тайской природой. Этичное обращение со слонами гарантировано.',
           price: '1,800₽',
-          duration: '4 часа',
+          duration: '6 часов',
+          groupSize: 'До 10 человек',
           image: 'https://images.unsplash.com/photo-1693566732648-a5f7c0699dd6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxlbGVwaGFudCUyMHRyZWtraW5nJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ0NDE4fDA&ixlib=rb-4.1.0&q=85',
-          includes: ['Трансфер из отеля', 'Обед', 'Катание на слонах', 'Посещение водопада']
+          includes: ['Трансфер из отеля', 'Обед', 'Катание на слонах', 'Посещение водопада', 'Гид', 'Фотографии'],
+          highlights: ['Этичный питомник слонов', 'Купание со слонами', 'Водопад Нам Ток', 'Тропические джунгли', 'Кормление слонов']
         },
         {
           title: 'Храмы и водопады',
-          description: 'Посещение древних храмов и живописных водопадов',
+          description: 'Культурно-природная экскурсия по самым красивым храмам и водопадам Пхукета. Посетите Большого Будду, храм Ват Чалонг и живописные водопады в джунглях.',
           price: '1,600₽',
-          duration: '6 часов',
+          duration: '7 часов',
+          groupSize: 'До 15 человек',
           image: 'https://images.unsplash.com/photo-1675165309772-28436d37e837?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxqdW5nbGUlMjB3YXRlcmZhbGwlMjBUaGFpbGFuZHxlbnwwfHx8fDE3NTE1NDQ0MzB8MA&ixlib=rb-4.1.0&q=85',
-          includes: ['Трансфер из отеля', 'Обед', 'Гид', 'Входные билеты']
+          includes: ['Трансфер из отеля', 'Обед', 'Гид', 'Входные билеты', 'Вода', 'Фотосессия'],
+          highlights: ['Большой Будда', 'Храм Ват Чалонг', 'Водопад Банграк', 'Смотровая площадка', 'Тайские традиции']
+        },
+        {
+          title: 'Национальный парк Као Сок',
+          description: 'Поездка в один из старейших тропических лесов мира. Сплав по реке, треккинг по джунглям, посещение пещер и встреча с дикими животными в их естественной среде.',
+          price: '2,400₽',
+          duration: '12 часов',
+          groupSize: 'До 12 человек',
+          image: 'https://images.unsplash.com/photo-1675165309772-28436d37e837?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxqdW5nbGUlMjB3YXRlcmZhbGwlMjBUaGFpbGFuZHxlbnwwfHx8fDE3NTE1NDQ0MzB8MA&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Треккинг', 'Сплав по реке', 'Билет в парк', 'Гид-натуралист'],
+          highlights: ['160-миллионный лес', 'Река Сок', 'Дикие обезьяны', 'Пещеры', 'Тропические растения']
         }
       ]
     },
@@ -183,19 +213,33 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       tours: [
         {
           title: 'Каякинг в заливе Панг-Нга',
-          description: 'Исследуйте мангровые леса и пещеры на каяках',
+          description: 'Исследуйте мангровые леса и скрытые пещеры на каяках. Уникальная возможность увидеть нетронутую природу Таиланда и проплыть через таинственные гроты.',
           price: '2,100₽',
           duration: '6 часов',
+          groupSize: 'До 8 человек',
           image: 'https://images.unsplash.com/photo-1559972360-199685b3232f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxhY3RpdmUlMjByZWNyZWF0aW9uJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ0NDQ4fDA&ixlib=rb-4.1.0&q=85',
-          includes: ['Трансфер из отеля', 'Обед', 'Каяки', 'Инструктор']
+          includes: ['Трансфер из отеля', 'Обед', 'Каяки', 'Инструктор', 'Спасательные жилеты', 'Водонепроницаемые сумки'],
+          highlights: ['Мангровые леса', 'Скрытые пещеры', 'Морские цыгане', 'Сталактиты', 'Дикая природа']
         },
         {
           title: 'Зиплайн в джунглях',
-          description: 'Полеты на тросах над кронами тропических деревьев',
+          description: 'Захватывающие полеты на тросах над кронами тропических деревьев. Почувствуйте адреналин, паря как птица над девственными джунглями Пхукета.',
           price: '1,900₽',
           duration: '4 часа',
+          groupSize: 'До 6 человек',
           image: 'https://images.unsplash.com/photo-1559972360-199685b3232f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxhY3RpdmUlMjByZWNyZWF0aW9uJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ0NDQ4fDA&ixlib=rb-4.1.0&q=85',
-          includes: ['Трансфер из отеля', 'Обед', 'Снаряжение', 'Инструктор']
+          includes: ['Трансфер из отеля', 'Обед', 'Снаряжение', 'Инструктор', 'Страховка', 'Видеосъемка'],
+          highlights: ['12 платформ', 'Полеты над джунглями', 'Спуск по канату', 'Подвесные мосты', 'Панорамные виды']
+        },
+        {
+          title: 'Дайвинг для начинающих',
+          description: 'Первое погружение с аквалангом в кристально чистых водах Андаманского моря. Откройте для себя подводный мир с его коралловыми рифами и тропическими рыбами.',
+          price: '3,500₽',
+          duration: '8 часов',
+          groupSize: 'До 4 человек',
+          image: 'https://images.unsplash.com/photo-1559972360-199685b3232f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxhY3RpdmUlMjByZWNyZWF0aW9uJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ0NDQ4fDA&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Обед', 'Дайвинг оборудование', 'Инструктор PADI', 'Сертификат', '2 погружения'],
+          highlights: ['Коралловые рифы', 'Тропические рыбы', 'Подводные скалы', 'Сертификат PADI', 'Профессиональное оборудование']
         }
       ]
     },
@@ -206,19 +250,33 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       tours: [
         {
           title: 'Обзорная экскурсия по Пхукету',
-          description: 'Посещение главных достопримечательностей острова',
+          description: 'Полный обзор острова за один день! Посетите главные достопримечательности: Большого Будду, мыс Промтеп, храм Ват Чалонг, старый город Пхукета и лучшие смотровые площадки.',
           price: '1,400₽',
-          duration: '5 часов',
+          duration: '8 часов',
+          groupSize: 'До 15 человек',
           image: 'https://images.unsplash.com/photo-1698199826046-1ee0f3f0e1fd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxQaHVrZXQlMjBjaXR5JTIwdGVtcGxlfGVufDB8fHx8MTc1MTU0NDQ0MXww&ixlib=rb-4.1.0&q=85',
-          includes: ['Трансфер из отеля', 'Обед', 'Гид', 'Входные билеты']
+          includes: ['Трансфер из отеля', 'Обед', 'Гид', 'Входные билеты', 'Вода', 'Фотосъемка'],
+          highlights: ['Большой Будда', 'Мыс Промтеп', 'Храм Ват Чалонг', 'Кешью фабрика', 'Старый город']
         },
         {
           title: 'Старый город Пхукета',
-          description: 'Прогулка по историческому центру с колониальной архитектурой',
+          description: 'Погружение в историю и культуру Пхукета. Прогулка по улицам с колониальной архитектурой, посещение музеев, дегустация местной кухни и знакомство с тайскими традициями.',
           price: '1,200₽',
-          duration: '4 часа',
+          duration: '5 часов',
+          groupSize: 'До 10 человек',
           image: 'https://images.pexels.com/photos/27034329/pexels-photo-27034329.jpeg',
-          includes: ['Трансфер из отеля', 'Гид', 'Дегустация местной кухни']
+          includes: ['Трансфер из отеля', 'Гид', 'Дегустация местной кухни', 'Посещение музеев', 'Сувениры'],
+          highlights: ['Колониальная архитектура', 'Тайские музеи', 'Уличная еда', 'Местные рынки', 'Культурные традиции']
+        },
+        {
+          title: 'Закат на мысе Промтеп',
+          description: 'Романтическая экскурсия на лучшую смотровую площадку острова. Встретьте невероятный закат над Андаманским морем в компании с любимым человеком.',
+          price: '800₽',
+          duration: '3 часа',
+          groupSize: 'До 12 человек',
+          image: 'https://images.unsplash.com/photo-1698199826046-1ee0f3f0e1fd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxQaHVrZXQlMjBjaXR5JTIwdGVtcGxlfGVufDB8fHx8MTc1MTU0NDQ0MXww&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Напитки', 'Закуски', 'Гид', 'Фотосъемка'],
+          highlights: ['Мыс Промтеп', 'Закат над морем', 'Романтическая атмосфера', 'Панорамные виды', 'Маяк']
         }
       ]
     },
@@ -229,19 +287,33 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       tours: [
         {
           title: 'Шоу Simon Cabaret',
-          description: 'Знаменитое кабаре-шоу с яркими костюмами и номерами',
+          description: 'Всемирно известное кабаре-шоу с профессиональными артистами в ярких костюмах. Незабываемое представление с элементами тайской культуры, современными танцами и впечатляющими номерами.',
           price: '1,100₽',
           duration: '3 часа',
+          groupSize: 'До 30 человек',
           image: 'https://images.pexels.com/photos/14591803/pexels-photo-14591803.jpeg',
-          includes: ['Трансфер из отеля', 'Билет на шоу', 'Напиток']
+          includes: ['Трансфер из отеля', 'Билет на шоу', 'Напиток', 'Программка', 'Фото с артистами'],
+          highlights: ['Профессиональные артисты', 'Яркие костюмы', 'Тайские танцы', 'Современные номера', 'Фотосессия']
         },
         {
           title: 'Fantasea Show',
-          description: 'Грандиозное театрализованное представление с элементами цирка',
+          description: 'Грандиозное театрализованное представление, сочетающее элементы цирка, мюзикла и тайской культуры. Шоу проходит в специально построенном театре с участием слонов, акробатов и танцоров.',
           price: '2,400₽',
           duration: '5 часов',
+          groupSize: 'До 25 человек',
           image: 'https://images.unsplash.com/photo-1646489471134-f2a91aab85cc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxUaGFpJTIwY3VsdHVyYWwlMjBzaG93fGVufDB8fHx8MTc1MTU0NDQyNHww&ixlib=rb-4.1.0&q=85',
-          includes: ['Трансфер из отеля', 'Билет на шоу', 'Ужин', 'Напитки']
+          includes: ['Трансфер из отеля', 'Билет на шоу', 'Ужин', 'Напитки', 'Парк развлечений', 'Сувениры'],
+          highlights: ['Шоу со слонами', 'Акробатические номера', 'Тайские легенды', 'Парк развлечений', 'Фейерверк']
+        },
+        {
+          title: 'Тайский бокс на стадионе',
+          description: 'Настоящие бои муай-тай на профессиональном стадионе. Окунитесь в атмосферу национального спорта Таиланда, наблюдая за схватками опытных бойцов.',
+          price: '900₽',
+          duration: '4 часа',
+          groupSize: 'До 20 человек',
+          image: 'https://images.pexels.com/photos/14591803/pexels-photo-14591803.jpeg',
+          includes: ['Трансфер из отеля', 'Билет на матч', 'Напитки', 'Закуски', 'Программка'],
+          highlights: ['Настоящий муай-тай', 'Профессиональные бойцы', 'Традиционная церемония', 'Стадион Bangla', 'Атмосфера боя']
         }
       ]
     }
@@ -265,11 +337,16 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
                 className="h-64 bg-cover bg-center relative"
                 style={{ backgroundImage: `url(${category.image})` }}
               >
-                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors"></div>
+                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="text-white text-xl font-bold text-center px-4">
+                  <h3 className="text-white text-xl font-bold text-center px-4 group-hover:scale-105 transition-transform">
                     {category.title}
                   </h3>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-white text-sm bg-black/30 rounded px-2 py-1">
+                    {category.tours.length} экскурсий
+                  </p>
                 </div>
               </div>
             </div>
