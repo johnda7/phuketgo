@@ -11,7 +11,10 @@ import {
   AboutPage,
   PricesPage,
   ReviewsPage,
-  ThreeStepsSection
+  ThreeStepsSection,
+  FloatingContactWidget,
+  WeatherWidget,
+  CurrencyWidget
 } from './components';
 
 function App() {
@@ -70,7 +73,15 @@ function App() {
       {currentPage === 'main' && (
         <>
           <HeroSection onCategorySelect={handleCategorySelect} />
-          <ExcursionCategories onCategorySelect={handleCategorySelect} />
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-4 mb-8">
+            <div className="lg:col-span-3">
+              <ExcursionCategories onCategorySelect={handleCategorySelect} />
+            </div>
+            <div className="space-y-6">
+              <WeatherWidget />
+              <CurrencyWidget />
+            </div>
+          </div>
           <ThreeStepsSection />
           <FAQ />
           <WhyChooseUs />
@@ -109,6 +120,7 @@ function App() {
       )}
       
       <Footer />
+      <FloatingContactWidget />
     </div>
   );
 }
