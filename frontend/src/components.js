@@ -462,30 +462,47 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       return false;
     }
 
+    // Tags filter
+    if (selectedTags.length > 0) {
+      const hasMatchingTag = selectedTags.some(selectedTag => 
+        tour.tags.some(tag => tag.toLowerCase().includes(selectedTag.toLowerCase()))
+      );
+      if (!hasMatchingTag) return false;
+    }
+
     // Price filter
     if (activeFilters.priceRange !== 'all') {
       const [min, max] = activeFilters.priceRange.split('-').map(Number);
-      if (max && (tour.priceNum < min || tour.priceNum > max)) return false;
-      if (!max && tour.priceNum < min) return false;
+      if (max) {
+        if (tour.priceNum < min || tour.priceNum > max) return false;
+      } else {
+        if (tour.priceNum < min) return false;
+      }
     }
 
     // Duration filter
     if (activeFilters.duration !== 'all') {
       const [min, max] = activeFilters.duration.split('-').map(Number);
-      if (max && (tour.durationNum < min || tour.durationNum > max)) return false;
-      if (!max && tour.durationNum < min) return false;
+      if (max) {
+        if (tour.durationNum < min || tour.durationNum > max) return false;
+      } else {
+        if (tour.durationNum < min) return false;
+      }
     }
 
     // Activity filter
-    if (activeFilters.activity !== 'all' && tour.activity !== activeFilters.activity) {
-      return false;
+    if (activeFilters.activity !== 'all') {
+      if (tour.activity !== activeFilters.activity) return false;
     }
 
     // Group size filter
     if (activeFilters.groupSize !== 'all') {
       const [min, max] = activeFilters.groupSize.split('-').map(Number);
-      if (max && (tour.groupSizeNum < min || tour.groupSizeNum > max)) return false;
-      if (!max && tour.groupSizeNum < min) return false;
+      if (max) {
+        if (tour.groupSizeNum < min || tour.groupSizeNum > max) return false;
+      } else {
+        if (tour.groupSizeNum < min) return false;
+      }
     }
 
     // Rating filter
