@@ -896,7 +896,7 @@ export const ContactForm = () => {
                     placeholder="+66 xxx xxx xxx"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-emerald-500 focus:outline-none transition-colors"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
                     required
                   />
                 </div>
