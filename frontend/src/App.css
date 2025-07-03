@@ -134,7 +134,17 @@ button:hover {
   animation: fadeInUp 0.8s ease-out;
 }
 
-/* Responsive design helpers */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Sticky positioning for sidebar */
+.sticky {
+  position: sticky;
+}
 @media (max-width: 768px) {
   .container {
     padding-left: 1rem;
