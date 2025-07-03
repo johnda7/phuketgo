@@ -561,17 +561,17 @@ export const PricesPage = ({ onBackToMain }) => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {priceCategories.map((category, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-xl p-8">
-                <h2 className="text-2xl font-bold text-emerald-600 mb-6 text-center">
+                <h2 className="text-2xl font-bold text-cyan-600 mb-6 text-center">
                   {category.title}
                 </h2>
                 <div className="space-y-4">
                   {category.prices.map((item, i) => (
-                    <div key={i} className="flex justify-between items-center p-4 bg-gray-50 rounded-lg hover:bg-emerald-50 transition-colors">
+                    <div key={i} className="flex justify-between items-center p-4 bg-gray-50 rounded-lg hover:bg-cyan-50 transition-colors">
                       <div>
                         <h3 className="font-semibold text-gray-800">{item.name}</h3>
                         <p className="text-sm text-gray-600">{item.duration}</p>
                       </div>
-                      <div className="text-xl font-bold text-emerald-600">
+                      <div className="text-xl font-bold text-cyan-600">
                         {item.price}
                       </div>
                     </div>
