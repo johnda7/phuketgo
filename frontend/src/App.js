@@ -13,18 +13,31 @@ import {
 function App() {
   const [currentPage, setCurrentPage] = useState('main');
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedTour, setSelectedTour] = useState(null);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
+    setSelectedTour(null);
     setCurrentPage('category');
-    // Scroll to top when entering category page
+    window.scrollTo(0, 0);
+  };
+
+  const handleTourSelect = (tour) => {
+    setSelectedTour(tour);
+    setCurrentPage('tour');
     window.scrollTo(0, 0);
   };
 
   const handleBackToMain = () => {
     setCurrentPage('main');
     setSelectedCategory(null);
-    // Scroll to top when returning to main page
+    setSelectedTour(null);
+    window.scrollTo(0, 0);
+  };
+
+  const handleBackToCategory = () => {
+    setCurrentPage('category');
+    setSelectedTour(null);
     window.scrollTo(0, 0);
   };
 
@@ -38,6 +51,8 @@ function App() {
         currentPage={currentPage} 
         onBackToMain={handleBackToMain}
         onCategorySelect={handleCategorySelect}
+        selectedTour={selectedTour}
+        selectedCategory={selectedCategory}
       />
       
       {currentPage === 'main' && (
@@ -54,6 +69,16 @@ function App() {
         <CategoryPage 
           category={selectedCategory} 
           onBackToMain={handleBackToMain}
+          onTourSelect={handleTourSelect}
+        />
+      )}
+      
+      {currentPage === 'tour' && selectedTour && (
+        <TourPage 
+          tour={selectedTour}
+          category={selectedCategory}
+          onBackToMain={handleBackToMain}
+          onBackToCategory={handleBackToCategory}
           onBookTour={handleBookTour}
         />
       )}
