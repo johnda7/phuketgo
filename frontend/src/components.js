@@ -862,22 +862,50 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           <div className="text-center py-12">
             <div className="text-6xl mb-4">🔍</div>
             <h3 className="text-2xl font-bold text-gray-800 mb-2">Экскурсии не найдены</h3>
-            <p className="text-gray-600 mb-6">Попробуйте изменить критерии поиска или фильтры</p>
-            <button
-              onClick={() => {
-                setSearchTerm('');
-                setActiveFilters({
-                  priceRange: 'all',
-                  duration: 'all',
-                  activity: 'all',
-                  groupSize: 'all',
-                  rating: 'all'
-                });
-              }}
-              className="bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-colors"
-            >
-              Сбросить фильтры
-            </button>
+            <p className="text-gray-600 mb-6">
+              {searchTerm ? `По запросу "${searchTerm}" ничего не найдено.` : 'Ни одна экскурсия не соответствует выбранным фильтрам.'}
+              <br />Попробуйте изменить критерии поиска или фильтры.
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={clearAllFilters}
+                className="bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-colors"
+              >
+                Сбросить все фильтры
+              </button>
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  Очистить поиск
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Quick stats */}
+        {groupedTours.length > 0 && (
+          <div className="mt-12 text-center">
+            <div className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-2xl p-6 inline-block">
+              <div className="flex items-center justify-center gap-8">
+                <div>
+                  <div className="text-2xl font-bold">{sortedTours.length}</div>
+                  <div className="text-cyan-100 text-sm">Экскурсий найдено</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">{groupedTours.length}</div>
+                  <div className="text-cyan-100 text-sm">Категорий</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">
+                    {Math.min(...sortedTours.map(t => t.priceNum))}฿
+                  </div>
+                  <div className="text-cyan-100 text-sm">Мин. цена</div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
