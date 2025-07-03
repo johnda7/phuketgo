@@ -14,11 +14,12 @@ import {
   ThreeStepsSection,
   FloatingContactWidget,
   WeatherWidget,
-  CurrencyWidget,
-  InteractiveMap,
-  ComparisonWidget,
-  ChatBot,
-  AvailabilityCalendar
+  CurrencyWidget
+  // The following components are not exported from components.js:
+  // InteractiveMap,
+  // ComparisonWidget,
+  // ChatBot,
+  // AvailabilityCalendar
 } from './components';
 
 function App() {
