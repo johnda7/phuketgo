@@ -17,20 +17,32 @@ function App() {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
     setCurrentPage('category');
+    // Scroll to top when entering category page
+    window.scrollTo(0, 0);
   };
 
   const handleBackToMain = () => {
     setCurrentPage('main');
     setSelectedCategory(null);
+    // Scroll to top when returning to main page
+    window.scrollTo(0, 0);
+  };
+
+  const handleBookTour = (tour) => {
+    alert(`Заявка на экскурсию "${tour.title}" принята! Мы свяжемся с вами в ближайшее время.`);
   };
 
   return (
     <div className="App">
-      <MainHeader currentPage={currentPage} onBackToMain={handleBackToMain} />
+      <MainHeader 
+        currentPage={currentPage} 
+        onBackToMain={handleBackToMain}
+        onCategorySelect={handleCategorySelect}
+      />
       
       {currentPage === 'main' && (
         <>
-          <HeroSection />
+          <HeroSection onCategorySelect={handleCategorySelect} />
           <ExcursionCategories onCategorySelect={handleCategorySelect} />
           <FAQ />
           <WhyChooseUs />
@@ -41,7 +53,8 @@ function App() {
       {currentPage === 'category' && selectedCategory && (
         <CategoryPage 
           category={selectedCategory} 
-          onBackToMain={handleBackToMain} 
+          onBackToMain={handleBackToMain}
+          onBookTour={handleBookTour}
         />
       )}
       
