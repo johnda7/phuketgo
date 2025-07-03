@@ -297,7 +297,9 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           rating: 4.7,
           tags: ['джеймс бонд', 'фильм', 'скалы', 'классика'],
           activity: 'cultural',
-          image: 'https://images.pexels.com/photos/176400/pexels-photo-176400.jpeg'
+          image: 'https://images.pexels.com/photos/176400/pexels-photo-176400.jpeg',
+          highlights: ['Остров Ко Тапу', 'Залив Пханг Нга', 'Пещеры и гроты', 'Мангровые леса', 'Фото с киношными локациями'],
+          includes: ['Трансфер из отеля', 'Обед', 'Лонгтейл лодка', 'Местный гид', 'Входные билеты', 'Страховка']
         }
       ]
     }
