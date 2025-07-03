@@ -7,7 +7,11 @@ import {
   FAQ, 
   WhyChooseUs, 
   ContactForm, 
-  Footer 
+  Footer,
+  AboutPage,
+  PricesPage,
+  ReviewsPage,
+  ThreeStepsSection
 } from './components';
 
 function App() {
@@ -25,6 +29,13 @@ function App() {
   const handleTourSelect = (tour) => {
     setSelectedTour(tour);
     setCurrentPage('tour');
+    window.scrollTo(0, 0);
+  };
+
+  const handlePageSelect = (pageType) => {
+    setCurrentPage(pageType);
+    setSelectedCategory(null);
+    setSelectedTour(null);
     window.scrollTo(0, 0);
   };
 
@@ -46,11 +57,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App bg-gray-50">
       <MainHeader 
         currentPage={currentPage} 
         onBackToMain={handleBackToMain}
         onCategorySelect={handleCategorySelect}
+        onPageSelect={handlePageSelect}
         selectedTour={selectedTour}
         selectedCategory={selectedCategory}
       />
@@ -59,10 +71,23 @@ function App() {
         <>
           <HeroSection onCategorySelect={handleCategorySelect} />
           <ExcursionCategories onCategorySelect={handleCategorySelect} />
+          <ThreeStepsSection />
           <FAQ />
           <WhyChooseUs />
           <ContactForm />
         </>
+      )}
+      
+      {currentPage === 'about' && (
+        <AboutPage onBackToMain={handleBackToMain} />
+      )}
+      
+      {currentPage === 'prices' && (
+        <PricesPage onBackToMain={handleBackToMain} />
+      )}
+      
+      {currentPage === 'reviews' && (
+        <ReviewsPage onBackToMain={handleBackToMain} />
       )}
       
       {currentPage === 'category' && selectedCategory && (
