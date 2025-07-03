@@ -351,10 +351,10 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
                       {category.title}
                     </h3>
                     <div className="flex items-center space-x-2">
-                      <span className="bg-emerald-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-cyan-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">
                         {category.tours.length} экскурсий
                       </span>
-                      <span className="text-emerald-300">
+                      <span className="text-cyan-300">
                         от {Math.min(...category.tours.map(t => parseInt(t.price.replace(/[^\d]/g, ''))))}฿
                       </span>
                     </div>
