@@ -416,6 +416,33 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
     }
   ];
 
+  // Get all unique tags from all tours
+  const allTags = [...new Set(categories.flatMap(category => 
+    category.tours.flatMap(tour => tour.tags)
+  ))];
+
+  // Handle tag filtering
+  const handleTagClick = (tag) => {
+    setSelectedTags(prev => 
+      prev.includes(tag) 
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    );
+  };
+
+  // Clear all filters
+  const clearAllFilters = () => {
+    setSearchTerm('');
+    setSelectedTags([]);
+    setActiveFilters({
+      priceRange: 'all',
+      duration: 'all',
+      activity: 'all',
+      groupSize: 'all',
+      rating: 'all'
+    });
+  };
+
   // Get all tours from all categories for filtering
   const allTours = categories.flatMap(category => 
     category.tours.map(tour => ({
