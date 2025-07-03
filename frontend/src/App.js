@@ -151,7 +151,8 @@ function App() {
             <div className="space-y-6">
               <WeatherWidget />
               <CurrencyWidget />
-              <AvailabilityCalendar />
+              {/* AvailabilityCalendar component is not defined */}
+              {/* <AvailabilityCalendar /> */}
             </div>
           </div>
           <ThreeStepsSection />
