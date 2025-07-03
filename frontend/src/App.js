@@ -417,12 +417,18 @@ const TourPage = ({ tour, category, onBackToMain, onBackToCategory, onBookTour }
                   
                   <h3 className="text-2xl font-semibold text-gray-800 mb-4">Особенности экскурсии:</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {tour.highlights.map((highlight, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-700">{highlight}</span>
+                    {tour.highlights && tour.highlights.length > 0 ? (
+                      tour.highlights.map((highlight, index) => (
+                        <div key={index} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-700">{highlight}</span>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="col-span-2">
+                        <p className="text-gray-600 italic">Особенности этой экскурсии будут добавлены позже.</p>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               )}
