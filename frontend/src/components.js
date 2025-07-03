@@ -581,10 +581,10 @@ export const PricesPage = ({ onBackToMain }) => {
             ))}
           </div>
           
-          <div className="mt-12 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-2xl p-8 text-center">
+          <div className="mt-12 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-2xl p-8 text-center">
             <h2 className="text-3xl font-bold mb-4">Скидки при бронировании от 3х экскурсий</h2>
             <p className="text-xl mb-6">Получите скидку до 15% при заказе нескольких экскурсий</p>
-            <button className="bg-white text-emerald-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-cyan-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
               Узнать подробности
             </button>
           </div>
