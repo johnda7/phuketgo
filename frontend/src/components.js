@@ -272,7 +272,9 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           rating: 4.8,
           tags: ['майя бэй', 'фильм', 'спидбот', 'популярно'],
           activity: 'water',
-          image: 'https://images.pexels.com/photos/1647110/pexels-photo-1647110.jpeg'
+          image: 'https://images.pexels.com/photos/1647110/pexels-photo-1647110.jpeg',
+          highlights: ['Залив Майя Бэй', 'Пещера Викингов', 'Бухта Лох Самах', 'Остров Бамбу', 'Снорклинг с тропическими рыбками'],
+          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снаряжение для снорклинга', 'Профессиональный гид', 'Спасательные жилеты', 'Страховка']
         }
       ]
     },
