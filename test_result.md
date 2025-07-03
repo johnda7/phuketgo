@@ -104,6 +104,43 @@
 
 user_problem_statement: "Сайт не доделан и поломан. Нужно изучить https://www.tisland.travel/thailand/phuket/excursions и добавить из него фильтры под наши экскурсии и все самое лучшее, только не добавлять экскурсии оттуда"
 
+backend:
+  - task: "Базовая функциональность API endpoints"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Проверены все API endpoints (/api/, /api/status POST, /api/status GET). Все работают корректно и возвращают ожидаемые ответы."
+
+  - task: "MongoDB соединение и сохранение данных"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Проверено соединение с MongoDB. Данные успешно сохраняются и извлекаются из базы данных через API endpoints."
+
+  - task: "CORS конфигурация"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "CORS настроен правильно, что позволяет frontend приложению взаимодействовать с API."
+
 frontend:
   - task: "Исправить и доработать систему фильтров в ExcursionCategories"
     implemented: true
