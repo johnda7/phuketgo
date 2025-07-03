@@ -496,57 +496,7 @@ const TourPage = ({ tour, category, onBackToMain, onBackToCategory, onBookTour }
   );
 };
 
-// Category Page Component
-const CategoryPage = ({ category, onBackToMain, onTourSelect }) => {
-  return (
-    <div className="min-h-screen bg-gray-50 pt-24">
-      <div className="container mx-auto px-4 py-8">
-        <button
-          onClick={onBackToMain}
-          className="mb-6 flex items-center text-emerald-600 hover:text-emerald-700 font-medium text-lg transition-colors"
-        >
-          ← Вернуться к экскурсиям
-        </button>
-        
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">{category.title}</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {category.tours.map((tour, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                 onClick={() => onTourSelect(tour)}>
-              <div className="relative">
-                <img 
-                  src={tour.image} 
-                  alt={tour.title}
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  {tour.price}
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 hover:text-emerald-600 transition-colors">{tour.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">{tour.description}</p>
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm text-gray-500">
-                    <i className="fas fa-clock mr-1"></i>{tour.duration}
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    <i className="fas fa-users mr-1"></i>{tour.groupSize || 'До 15 человек'}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-emerald-600 font-semibold">Подробнее →</span>
-                  <span className="text-gray-400 text-sm">Нажмите для просмотра</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+
 
 // Individual Tour Page Component
 const TourPage = ({ tour, category, onBackToMain, onBackToCategory, onBookTour }) => {
