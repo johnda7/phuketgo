@@ -231,7 +231,9 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           rating: 4.9,
           tags: ['снорклинг', 'национальный парк', 'острова', 'черепахи'],
           activity: 'water',
-          image: 'https://images.pexels.com/photos/18277777/pexels-photo-18277777.jpeg'
+          image: 'https://images.pexels.com/photos/18277777/pexels-photo-18277777.jpeg',
+          highlights: ['9 необитаемых островов', 'Коралловые рифы', 'Тропические рыбы', 'Черепахи', 'Sailing Rock'],
+          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снорклинг', 'Билет в национальный парк', 'Гид', 'Маски и ласты']
         },
         {
           title: 'Острова Краби на спидботе',
@@ -245,7 +247,9 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           rating: 4.8,
           tags: ['спидбот', 'пляжи', 'каякинг', 'фото'],
           activity: 'water',
-          image: 'https://images.unsplash.com/photo-1534008897995-27a23e859048?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHhQaGklMjBQaGklMjBJc2xhbmRzJTIwTWF5YSUyMEJheXxlbnwwfHx8fDE3NTE1NDQ0MDR8MA&ixlib=rb-4.1.0&q=85'
+          image: 'https://images.unsplash.com/photo-1534008897995-27a23e859048?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHhQaGklMjBQaGklMjBJc2xhbmRzJTIwTWF5YSUyMEJheXxlbnwwfHx8fDE3NTE1NDQ0MDR8MA&ixlib=rb-4.1.0&q=85',
+          highlights: ['Остров Пода', 'Пляж Прананг', 'Остров Чикен', 'Коса Тап', 'Пещеры и лагуны'],
+          includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снорклинг', 'Каякинг', 'Гид', 'Безлимитные напитки']
         }
       ]
     },
