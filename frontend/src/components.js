@@ -1,5 +1,168 @@
 import React, { useState } from 'react';
 
+// Main Header Component
+export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect, selectedTour, selectedCategory, onPageSelect }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollToSection = (sectionId) => {
+    if (currentPage !== 'main') {
+      onBackToMain();
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  const handlePageSelect = (pageType) => {
+    if (onPageSelect) {
+      onPageSelect(pageType);
+    }
+  };
+
+  const getPageTitle = () => {
+    if (currentPage === 'tour' && selectedTour) {
+      return selectedTour.title;
+    } else if (currentPage === 'category' && selectedCategory) {
+      return selectedCategory.title;
+    } else if (currentPage === 'about') {
+      return 'О компании';
+    } else if (currentPage === 'prices') {
+      return 'Цены';
+    } else if (currentPage === 'reviews') {
+      return 'Отзывы';
+    }
+    return 'Экскурсии по Пхукету';
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-cyan-100">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={onBackToMain}>
+            <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg">
+              <img 
+                src="/logo.svg" 
+                alt="Пхукет GO"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-teal-500 bg-clip-text text-transparent">
+                ПХУКЕТ GO
+              </h1>
+              <p className="text-xs text-gray-500">{getPageTitle()}</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center space-x-6">
+            <div className="text-right hidden sm:block">
+              <p className="text-sm font-semibold text-gray-800">+66 94 975 24 66</p>
+              <p className="text-xs text-cyan-600">24/7 поддержка</p>
+            </div>
+            
+            <nav className="hidden lg:flex items-center space-x-8">
+              <button 
+                onClick={() => scrollToSection('excursions')}
+                className="text-gray-700 hover:text-cyan-600 transition-colors font-medium"
+              >
+                Экскурсии
+              </button>
+              <button 
+                onClick={() => handlePageSelect('prices')}
+                className="text-gray-700 hover:text-cyan-600 transition-colors font-medium"
+              >
+                Цены
+              </button>
+              <button 
+                onClick={() => handlePageSelect('reviews')}
+                className="text-gray-700 hover:text-cyan-600 transition-colors font-medium"
+              >
+                Отзывы
+              </button>
+              <button 
+                onClick={() => handlePageSelect('about')}
+                className="text-gray-700 hover:text-cyan-600 transition-colors font-medium"
+              >
+                О компании
+              </button>
+            </nav>
+            
+            <a 
+              href="https://t.me/+qkhh55Ozg6gxY2Y1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-6 py-2 rounded-full hover:from-cyan-600 hover:to-teal-600 transition-all transform hover:scale-105 font-semibold shadow-lg flex items-center space-x-2"
+            >
+              <span>💬</span>
+              <span>TELEGRAM</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+// Hero Section Component
+export const HeroSection = ({ onCategorySelect }) => {
+  const scrollToExcursions = () => {
+    const element = document.getElementById('excursions');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
+        style={{
+          backgroundImage: `url('https://images.pexels.com/photos/176400/pexels-photo-176400.jpeg')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50"></div>
+      </div>
+      
+      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+        <div className="animate-fadeInUp">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
+            <span className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
+              ПХУКЕТ GO
+            </span>
+          </h1>
+          <p className="text-xl md:text-3xl mb-8 text-gray-100 font-light leading-relaxed">
+            Откройте для себя райские уголки Таиланда<br />
+            <span className="text-cyan-300">вместе с нами</span>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button 
+              onClick={scrollToExcursions}
+              className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-cyan-600 hover:to-teal-600 transition-all transform hover:scale-105 shadow-2xl"
+            >
+              ВЫБРАТЬ ЭКСКУРСИЮ
+            </button>
+            <div className="text-cyan-200 text-sm">
+              🌟 Более 10,000 довольных туристов
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Floating elements */}
+      <div className="absolute top-20 left-10 w-20 h-20 bg-emerald-400/20 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute bottom-32 right-16 w-32 h-32 bg-teal-400/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
+    </section>
+  );
+};
+
 // Improved ExcursionCategories Component with working filters
 export const ExcursionCategories = ({ onCategorySelect }) => {
   const [activeFilters, setActiveFilters] = useState({
