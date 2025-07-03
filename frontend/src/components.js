@@ -864,14 +864,14 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-r from-emerald-600 to-teal-600" id="contacts">
+    <section className="py-20 bg-gradient-to-r from-cyan-500 to-teal-500" id="contacts">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">
               ОСТАВИТЬ ЗАЯВКУ
             </h2>
-            <p className="text-xl text-emerald-100">Свяжитесь с нами и мы подберем идеальную экскурсию для вас</p>
+            <p className="text-xl text-cyan-100">Свяжитесь с нами и мы подберем идеальную экскурсию для вас</p>
           </div>
           
           <div className="bg-white rounded-2xl shadow-2xl p-8">
