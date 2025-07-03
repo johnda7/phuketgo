@@ -387,6 +387,26 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           image: 'https://images.unsplash.com/photo-1698199826046-1ee0f3f0e1fd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxQaHVrZXQlMjBjaXR5JTIwdGVtcGxlfGVufDB8fHx8MTc1MTU0NDQ0MXww&ixlib=rb-4.1.0&q=85',
           includes: ['Трансфер из отеля', 'Напитки', 'Закуски', 'Гид', 'Фотосъемка'],
           highlights: ['Мыс Промтеп', 'Закат над морем', 'Романтическая атмосфера', 'Панорамные виды', 'Маяк']
+        },
+        {
+          title: 'Ночная жизнь Пхукета',
+          description: 'Знакомство с ночной жизнью острова: посещение лучших баров, ресторанов, ночных рынков и развлекательных районов Патонга и Пхукет-тауна.',
+          price: '1,800₽',
+          duration: '5 часов',
+          groupSize: 'До 12 человек',
+          image: 'https://images.pexels.com/photos/27034329/pexels-photo-27034329.jpeg',
+          includes: ['Трансфер из отеля', 'Гид', 'Приветственный напиток', 'Закуски', 'Карта баров'],
+          highlights: ['Улица Бангла роуд', 'Ночные рынки', 'Лучшие бары', 'Живая музыка', 'Тайская ночная культура']
+        },
+        {
+          title: 'Пляжный тур по острову',
+          description: 'Посещение самых красивых пляжей Пхукета: Карон, Ката, Сурин, Банана и других. Узнайте, какой пляж подходит именно вам для отдыха.',
+          price: '1,300₽',
+          duration: '6 часов',
+          groupSize: 'До 15 человек',
+          image: 'https://images.unsplash.com/photo-1698199826046-1ee0f3f0e1fd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxQaHVrZXQlMjBjaXR5JTIwdGVtcGxlfGVufDB8fHx8MTc1MTU0NDQ0MXww&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Обед', 'Гид', 'Пляжные полотенца', 'Вода', 'Карта пляжей'],
+          highlights: ['Пляж Карон', 'Пляж Ката', 'Пляж Сурин', 'Скрытые бухты', 'Лучшие места для фото']
         }
       ]
     },
@@ -424,6 +444,26 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           image: 'https://images.pexels.com/photos/14591803/pexels-photo-14591803.jpeg',
           includes: ['Трансфер из отеля', 'Билет на матч', 'Напитки', 'Закуски', 'Программка'],
           highlights: ['Настоящий муай-тай', 'Профессиональные бойцы', 'Традиционная церемония', 'Стадион Bangla', 'Атмосфера боя']
+        },
+        {
+          title: 'Alcazar Cabaret Show',
+          description: 'Красочное трансвестит-шоу с профессиональными артистами, впечатляющими костюмами и зрелищными номерами. Одно из самых популярных шоу в Таиланде.',
+          price: '1,200₽',
+          duration: '3 часа',
+          groupSize: 'До 35 человек',
+          image: 'https://images.pexels.com/photos/14591803/pexels-photo-14591803.jpeg',
+          includes: ['Трансфер из отеля', 'Билет на шоу', 'Напиток', 'Фото с артистами', 'Программка'],
+          highlights: ['Яркие костюмы', 'Профессиональные номера', 'Интерактивное шоу', 'Фотосессия', 'Незабываемые эмоции']
+        },
+        {
+          title: 'Афродита Кабаре Шоу',
+          description: 'Элегантное кабаре-шоу с изысканными костюмами и профессиональной хореографией. Представление включает номера разных стран мира и культур.',
+          price: '1,300₽',
+          duration: '3 часа',
+          groupSize: 'До 30 человек',
+          image: 'https://images.unsplash.com/photo-1646489471134-f2a91aab85cc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxUaGFpJTIwY3VsdHVyYWwlMjBzaG93fGVufDB8fHx8MTc1MTU0NDQyNHww&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Билет на шоу', 'Коктейль', 'Программка', 'Meet & Greet'],
+          highlights: ['Международные номера', 'Изысканные костюмы', 'Профессиональная хореография', 'Культуры мира', 'VIP зона']
         }
       ]
     }
