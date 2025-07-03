@@ -379,30 +379,73 @@ const TourPage = ({ tour, category, onBackToMain, onBackToCategory, onBookTour }
           <div className="lg:col-span-2">
             {/* Hero Image Gallery */}
             <div className="mb-8">
-              <div className="relative mb-4">
+              {/* Main Image */}
+              <div className="relative mb-4 group">
                 <img 
                   src={tourGallery[selectedImageIndex]} 
                   alt={tour.title}
-                  className="w-full h-96 object-cover rounded-lg"
+                  className="w-full h-96 object-cover rounded-xl cursor-pointer"
+                  onClick={() => openGallery(selectedImageIndex)}
                 />
-                <div className="absolute top-4 left-4 bg-cyan-600 text-white px-4 py-2 rounded-lg">
+                
+                {/* Price Badge */}
+                <div className="absolute top-4 left-4 bg-gradient-to-r from-cyan-600 to-teal-500 text-white px-4 py-2 rounded-lg shadow-lg">
                   <span className="text-2xl font-bold">{tour.price}</span>
                   <span className="text-sm block">за человека</span>
                 </div>
+                
+                {/* View Gallery Button */}
+                <div className="absolute bottom-4 right-4">
+                  <button
+                    onClick={() => openGallery(0)}
+                    className="bg-black/70 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-black/80 transition-all"
+                  >
+                    <span>📷</span>
+                    <span>Все фото ({tourGallery.length})</span>
+                  </button>
+                </div>
+                
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <div className="text-4xl mb-2">🔍</div>
+                    <p className="font-semibold">Нажмите для просмотра</p>
+                  </div>
+                </div>
               </div>
               
-              <div className="grid grid-cols-4 gap-2">
-                {tourGallery.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`${tour.title} ${index + 1}`}
-                    className={`h-20 object-cover rounded cursor-pointer border-2 transition-all ${
-                      selectedImageIndex === index ? 'border-cyan-500' : 'border-gray-200 hover:border-cyan-300'
-                    }`}
-                    onClick={() => setSelectedImageIndex(index)}
-                  />
+              {/* Thumbnails */}
+              <div className="grid grid-cols-6 gap-2">
+                {tourGallery.slice(0, 5).map((image, index) => (
+                  <div key={index} className="relative">
+                    <img
+                      src={image}
+                      alt={`${tour.title} ${index + 1}`}
+                      className={`h-16 w-full object-cover rounded-lg cursor-pointer border-2 transition-all ${
+                        selectedImageIndex === index ? 'border-cyan-500 ring-2 ring-cyan-200' : 'border-gray-200 hover:border-cyan-300'
+                      }`}
+                      onClick={() => setSelectedImageIndex(index)}
+                    />
+                  </div>
                 ))}
+                
+                {/* Show More Button */}
+                {tourGallery.length > 5 && (
+                  <div className="relative">
+                    <img
+                      src={tourGallery[5]}
+                      alt="Больше фото"
+                      className="h-16 w-full object-cover rounded-lg cursor-pointer border-2 border-gray-200 hover:border-cyan-300 transition-all"
+                      onClick={() => openGallery(5)}
+                    />
+                    <div 
+                      className="absolute inset-0 bg-black/60 rounded-lg flex items-center justify-center cursor-pointer hover:bg-black/70 transition-all"
+                      onClick={() => openGallery(5)}
+                    >
+                      <span className="text-white text-xs font-bold">+{tourGallery.length - 5}</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
