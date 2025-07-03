@@ -941,7 +941,7 @@ export const ContactForm = () => {
               
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-xl text-lg font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all transform hover:scale-105 shadow-lg"
+                className="w-full bg-gradient-to-r from-cyan-500 to-teal-500 text-white py-4 rounded-xl text-lg font-semibold hover:from-cyan-600 hover:to-teal-600 transition-all transform hover:scale-105 shadow-lg"
               >
                 Отправить заявку
               </button>
