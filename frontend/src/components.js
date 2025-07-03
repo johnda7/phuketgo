@@ -49,17 +49,10 @@ export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect, select
           <div className="flex items-center space-x-3 cursor-pointer" onClick={onBackToMain}>
             <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg">
               <img 
-                src="https://i.imgur.com/YourLogoId.png" 
+                src="/logo.svg" 
                 alt="Пхукет GO"
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
               />
-              <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-full items-center justify-center text-white font-bold text-2xl" style={{display: 'none'}}>
-                GO
-              </div>
             </div>
             <div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-teal-500 bg-clip-text text-transparent">
