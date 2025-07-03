@@ -82,16 +82,17 @@ export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect, select
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg">
-            <nav className="container mx-auto px-4 py-4">
-              <div className="flex flex-col space-y-3">
+          <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-xl animate-fadeInDown">
+            <nav className="container mx-auto px-4 py-6">
+              <div className="flex flex-col space-y-4">
                 <button 
                   onClick={() => {
                     scrollToSection('excursions');
                     setIsMenuOpen(false);
                   }}
-                  className="text-left text-gray-700 hover:text-cyan-600 transition-colors font-medium py-2"
+                  className="flex items-center text-left text-gray-700 hover:text-cyan-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-cyan-50"
                 >
+                  <span className="mr-3">🏖️</span>
                   Экскурсии
                 </button>
                 <button 
@@ -99,8 +100,9 @@ export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect, select
                     handlePageSelect('prices');
                     setIsMenuOpen(false);
                   }}
-                  className="text-left text-gray-700 hover:text-cyan-600 transition-colors font-medium py-2"
+                  className="flex items-center text-left text-gray-700 hover:text-cyan-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-cyan-50"
                 >
+                  <span className="mr-3">💰</span>
                   Цены
                 </button>
                 <button 
@@ -108,8 +110,9 @@ export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect, select
                     handlePageSelect('reviews');
                     setIsMenuOpen(false);
                   }}
-                  className="text-left text-gray-700 hover:text-cyan-600 transition-colors font-medium py-2"
+                  className="flex items-center text-left text-gray-700 hover:text-cyan-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-cyan-50"
                 >
+                  <span className="mr-3">⭐</span>
                   Отзывы
                 </button>
                 <button 
@@ -117,15 +120,18 @@ export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect, select
                     handlePageSelect('about');
                     setIsMenuOpen(false);
                   }}
-                  className="text-left text-gray-700 hover:text-cyan-600 transition-colors font-medium py-2"
+                  className="flex items-center text-left text-gray-700 hover:text-cyan-600 transition-colors font-medium py-3 px-4 rounded-lg hover:bg-cyan-50"
                 >
+                  <span className="mr-3">ℹ️</span>
                   О компании
                 </button>
                 
                 {/* Phone for mobile */}
-                <div className="md:hidden pt-3 border-t border-gray-100">
-                  <p className="text-lg font-bold text-gray-800">+66 61 949 03 49</p>
-                  <p className="text-sm text-cyan-600">24/7</p>
+                <div className="md:hidden pt-4 mt-4 border-t border-gray-100 text-center">
+                  <a href="tel:+66619490349" className="block">
+                    <p className="text-xl font-bold text-gray-800">+66 61 949 03 49</p>
+                    <p className="text-sm text-cyan-600">24/7 • Нажмите для звонка</p>
+                  </a>
                 </div>
               </div>
             </nav>
