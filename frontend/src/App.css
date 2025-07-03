@@ -81,24 +81,7 @@ html {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Image hover effects */
-img {
-  transition: transform 0.3s ease;
-}
 
-img:hover {
-  transform: scale(1.05);
-}
-
-/* Button animations */
-button {
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
 
 /* Loading animations */
 @keyframes fadeIn {
