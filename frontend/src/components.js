@@ -175,6 +175,8 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('popular');
   const [showFilters, setShowFilters] = useState(false);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [viewMode, setViewMode] = useState('grid'); // grid or list
 
   const categories = [
     {
