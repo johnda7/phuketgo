@@ -163,20 +163,39 @@ export const HeroSection = ({ onCategorySelect }) => {
   );
 };
 
-// Excursion Categories Component with updated prices in Baht
+// Excursion Categories Component with filters and tags
 export const ExcursionCategories = ({ onCategorySelect }) => {
+  const [activeFilters, setActiveFilters] = useState({
+    priceRange: 'all',
+    duration: 'all',
+    activity: 'all',
+    groupSize: 'all',
+    rating: 'all'
+  });
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortBy, setSortBy] = useState('popular');
+  const [showFilters, setShowFilters] = useState(false);
+
   const categories = [
     {
       id: 'sea',
       title: 'МОРСКИЕ ЭКСКУРСИИ',
       image: 'https://images.unsplash.com/photo-1643264942781-3be860ed7cfc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxzZWElMjBleGN1cnNpb24lMjBBbmRhbWFufGVufDB8fHx8MTc1MTU0NDQ1NHww&ixlib=rb-4.1.0&q=85',
+      tags: ['море', 'острова', 'снорклинг', 'фото'],
+      rating: 4.9,
       tours: [
         {
           title: 'Симиланские острова',
           description: 'Одни из самых красивых островов в мире для снорклинга и дайвинга. Национальный парк Симилан известен своими коралловыми рифами, белоснежными пляжами и невероятно прозрачной водой.',
           price: '3,200฿',
+          priceNum: 3200,
           duration: '12 часов',
+          durationNum: 12,
           groupSize: 'До 20 человек',
+          groupSizeNum: 20,
+          rating: 4.9,
+          tags: ['снорклинг', 'национальный парк', 'острова', 'черепахи'],
+          activity: 'water',
           image: 'https://images.pexels.com/photos/18277777/pexels-photo-18277777.jpeg',
           includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снорклинг', 'Билет в национальный парк', 'Гид', 'Маски и ласты'],
           highlights: ['9 необитаемых островов', 'Коралловые рифы', 'Тропические рыбы', 'Черепахи', 'Sailing Rock']
@@ -185,8 +204,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Острова Краби на спидботе',
           description: 'Захватывающая экскурсия к четырем островам провинции Краби: Пода, Чикен, Тап и Прананг. Насладитесь снорклингом, пляжами и невероятными пейзажами.',
           price: '2,800฿',
+          priceNum: 2800,
           duration: '8 часов',
+          durationNum: 8,
           groupSize: 'До 15 человек',
+          groupSizeNum: 15,
+          rating: 4.8,
+          tags: ['спидбот', 'пляжи', 'каякинг', 'фото'],
+          activity: 'water',
           image: 'https://images.unsplash.com/photo-1534008897995-27a23e859048?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxQaGklMjBQaGklMjBJc2xhbmRzJTIwTWF5YSUyMEJheXxlbnwwfHx8fDE3NTE1NDQ0MDR8MA&ixlib=rb-4.1.0&q=85',
           includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снорклинг', 'Каякинг', 'Гид', 'Безлимитные напитки'],
           highlights: ['Остров Пода', 'Пляж Прананг', 'Остров Чикен', 'Коса Тап', 'Пещеры и лагуны']
@@ -195,8 +220,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Дайвинг для начинающих',
           description: 'Первое погружение с аквалангом в кристально чистых водах Андаманского моря. Профессиональные инструкторы научат вас основам дайвинга и покажут подводный мир.',
           price: '3,500฿',
+          priceNum: 3500,
           duration: '8 часов',
+          durationNum: 8,
           groupSize: 'До 4 человек',
+          groupSizeNum: 4,
+          rating: 4.9,
+          tags: ['дайвинг', 'сертификат', 'инструктор', 'подводный мир'],
+          activity: 'water',
           image: 'https://images.pexels.com/photos/3046582/pexels-photo-3046582.jpeg',
           includes: ['Трансфер из отеля', 'Обед', 'Дайвинг оборудование', 'Инструктор PADI', 'Сертификат', '2 погружения'],
           highlights: ['Коралловые рифы', 'Тропические рыбы', 'Подводные скалы', 'Сертификат PADI', 'Профессиональное оборудование']
@@ -205,8 +236,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Снорклинг тур к коралловым рифам',
           description: 'Исследуйте лучшие места для снорклинга вокруг Пхукета. Увидите разноцветные кораллы, тропических рыб и морских звезд в их естественной среде.',
           price: '1,800฿',
+          priceNum: 1800,
           duration: '6 часов',
+          durationNum: 6,
           groupSize: 'До 20 человек',
+          groupSizeNum: 20,
+          rating: 4.7,
+          tags: ['снорклинг', 'кораллы', 'рыбы', 'доступно'],
+          activity: 'water',
           image: 'https://images.pexels.com/photos/8093150/pexels-photo-8093150.jpeg',
           includes: ['Трансфер из отеля', 'Обед', 'Снорклинг оборудование', 'Гид', 'Фрукты', 'Питьевая вода'],
           highlights: ['Коралловые сады', 'Рыба-клоун', 'Морские черепахи', 'Рифовые акулы', 'Подводная фотосессия']
@@ -215,8 +252,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Рыбалка в открытом море',
           description: 'Настоящая морская рыбалка в Андаманском море. Попробуйте поймать барракуду, тунца или красного снэппера под руководством опытных рыбаков.',
           price: '2,900฿',
+          priceNum: 2900,
           duration: '8 часов',
+          durationNum: 8,
           groupSize: 'До 10 человек',
+          groupSizeNum: 10,
+          rating: 4.6,
+          tags: ['рыбалка', 'море', 'улов', 'приключение'],
+          activity: 'water',
           image: 'https://images.pexels.com/photos/14784268/pexels-photo-14784268.jpeg',
           includes: ['Трансфер из отеля', 'Завтрак и обед', 'Рыболовные снасти', 'Наживка', 'Гид-рыбак', 'Приготовление улова'],
           highlights: ['Глубоководная рыбалка', 'Тропические виды рыб', 'Профессиональные снасти', 'Готовка улова', 'Сертификат рыбака']
@@ -225,8 +268,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Романтический круиз на закате',
           description: 'Незабываемый романтический круиз на роскошной яхте во время заката. Насладитесь ужином, шампанским и невероятными видами Андаманского моря.',
           price: '4,200฿',
+          priceNum: 4200,
           duration: '4 часа',
+          durationNum: 4,
           groupSize: 'До 8 человек',
+          groupSizeNum: 8,
+          rating: 5.0,
+          tags: ['романтика', 'закат', 'яхта', 'ужин'],
+          activity: 'cruise',
           image: 'https://images.unsplash.com/photo-1672741186863-d3ad143cfaa5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxzdW5zZXQlMjBjcnVpc2UlMjBib2F0JTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ1NzE4fDA&ixlib=rb-4.1.0&q=85',
           includes: ['Трансфер из отеля', 'Ужин', 'Шампанское', 'Живая музыка', 'Фотограф', 'Романтическое оформление'],
           highlights: ['Роскошная яхта', 'Закат над морем', 'Ужин при свечах', 'Живая музыка', 'Фотосессия']
@@ -237,13 +286,21 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       id: 'phi-phi',
       title: 'ОСТРОВА ПХИ-ПХИ',
       image: 'https://images.pexels.com/photos/1647110/pexels-photo-1647110.jpeg',
+      tags: ['пхи-пхи', 'майя бэй', 'фильм', 'популярно'],
+      rating: 4.8,
       tours: [
         {
           title: 'Острова Пхи-Пхи на спидботе',
           description: 'Посетите знаменитые острова Пхи-Пхи, включая культовый залив Майя Бэй из фильма "Пляж" с Леонардо Ди Каприо.',
           price: '2,500฿',
+          priceNum: 2500,
           duration: '8 часов',
+          durationNum: 8,
           groupSize: 'До 15 человек',
+          groupSizeNum: 15,
+          rating: 4.8,
+          tags: ['майя бэй', 'фильм', 'спидбот', 'популярно'],
+          activity: 'water',
           image: 'https://images.pexels.com/photos/1647110/pexels-photo-1647110.jpeg',
           includes: ['Трансфер из отеля', 'Завтрак и обед', 'Снаряжение для снорклинга', 'Профессиональный гид', 'Спасательные жилеты', 'Страховка'],
           highlights: ['Залив Майя Бэй', 'Пещера Викингов', 'Бухта Лох Самах', 'Остров Бамбу', 'Снорклинг с тропическими рыбками']
@@ -252,8 +309,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Пхи-Пхи на рассвете (без толп)',
           description: 'Эксклюзивная экскурсия на острова Пхи-Пхи с ранним выездом, чтобы избежать толп туристов.',
           price: '3,200฿',
+          priceNum: 3200,
           duration: '10 часов',
+          durationNum: 10,
           groupSize: 'До 12 человек',
+          groupSizeNum: 12,
+          rating: 4.9,
+          tags: ['рассвет', 'эксклюзив', 'без толп', 'VIP'],
+          activity: 'water',
           image: 'https://images.pexels.com/photos/1647110/pexels-photo-1647110.jpeg',
           includes: ['Ранний трансфер', 'Завтрак и обед', 'Снорклинг', 'Фотосессия на рассвете', 'Гид', 'VIP-сервис'],
           highlights: ['Залив Майя Бэй без толп', 'Рассвет над островами', 'VIP-обслуживание', 'Эксклюзивные фото', 'Приоритетный доступ']
@@ -262,8 +325,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Пхи-Пхи + снорклинг тур',
           description: 'Комбинированная экскурсия на острова Пхи-Пхи с акцентом на снорклинг.',
           price: '2,800฿',
+          priceNum: 2800,
           duration: '9 часов',
+          durationNum: 9,
           groupSize: 'До 18 человек',
+          groupSizeNum: 18,
+          rating: 4.7,
+          tags: ['снорклинг', 'черепахи', 'рыбы', 'подводная съемка'],
+          activity: 'water',
           image: 'https://images.pexels.com/photos/8093150/pexels-photo-8093150.jpeg',
           includes: ['Трансфер из отеля', 'Завтрак и обед', 'Профессиональное снорклинг оборудование', 'Инструктор', 'Подводная камера', 'Фрукты'],
           highlights: ['Лучшие споты для снорклинга', 'Коралловые рифы', 'Тропические рыбы', 'Подводная съемка', 'Морские черепахи']
@@ -272,8 +341,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Пхи-Пхи на закате',
           description: 'Романтическая вечерняя экскурсия на острова Пхи-Пхи.',
           price: '2,900฿',
+          priceNum: 2900,
           duration: '8 часов',
+          durationNum: 8,
           groupSize: 'До 14 человек',
+          groupSizeNum: 14,
+          rating: 4.8,
+          tags: ['закат', 'романтика', 'ужин', 'музыка'],
+          activity: 'cruise',
           image: 'https://images.unsplash.com/photo-1672741186863-d3ad143cfaa5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxzdW5zZXQlMjBjcnVpc2UlMjBib2F0JTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ1NzE4fDA&ixlib=rb-4.1.0&q=85',
           includes: ['Трансфер из отеля', 'Обед и ужин', 'Напитки на закате', 'Романтическое оформление', 'Фотосессия', 'Живая музыка'],
           highlights: ['Закат на Пхи-Пхи', 'Романтическая атмосфера', 'Панорамные виды', 'Ужин на борту', 'Незабываемые моменты']
@@ -284,13 +359,21 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       id: 'james-bond',
       title: 'ДЖЕЙМС БОНД',
       image: 'https://images.pexels.com/photos/6437646/pexels-photo-6437646.jpeg',
+      tags: ['джеймс бонд', 'каякинг', 'пещеры', 'приключения'],
+      rating: 4.7,
       tours: [
         {
           title: 'Остров Джеймса Бонда',
           description: 'Экскурсия к легендарному острову Ко Тапу из фильма о Джеймсе Бонде "Человек с золотым пистолетом".',
           price: '2,200฿',
+          priceNum: 2200,
           duration: '7 часов',
+          durationNum: 7,
           groupSize: 'До 12 человек',
+          groupSizeNum: 12,
+          rating: 4.7,
+          tags: ['фильм', 'ко тапу', 'деревня на воде', 'каякинг'],
+          activity: 'adventure',
           image: 'https://images.pexels.com/photos/6437646/pexels-photo-6437646.jpeg',
           includes: ['Трансфер из отеля', 'Обед', 'Каякинг', 'Посещение деревни на воде', 'Гид', 'Страховка'],
           highlights: ['Остров Ко Тапу', 'Каякинг в пещерах', 'Деревня Панйи', 'Мангровые леса', 'Известняковые скалы']
@@ -299,8 +382,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Джеймс Бонд + каякинг в пещерах',
           description: 'Расширенная экскурсия к острову Джеймса Бонда с исследованием скрытых пещер и лагун на каяках.',
           price: '2,600฿',
+          priceNum: 2600,
           duration: '8 часов',
+          durationNum: 8,
           groupSize: 'До 10 человек',
+          groupSizeNum: 10,
+          rating: 4.8,
+          tags: ['каякинг', 'пещеры', 'мангровы', 'эко-тур'],
+          activity: 'adventure',
           image: 'https://images.unsplash.com/photo-1646440912030-d58d2394b1cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxtYW5ncm92ZSUyMGtheWFraW5nJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ1Njk1fDA&ixlib=rb-4.1.0&q=85',
           includes: ['Трансфер из отеля', 'Обед', 'Каяки и снаряжение', 'Опытный гид-каякер', 'Водонепроницаемые сумки', 'Исследование пещер'],
           highlights: ['Каякинг в пещерах', 'Скрытые лагуны', 'Мангровые туннели', 'Сталактиты и сталагмиты', 'Дикая природа']
@@ -309,8 +398,14 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           title: 'Джеймс Бонд на лонгтейле',
           description: 'Аутентичная экскурсия к острову Джеймса Бонда на традиционной тайской лодке лонгтейл.',
           price: '1,800฿',
+          priceNum: 1800,
           duration: '6 часов',
+          durationNum: 6,
           groupSize: 'До 8 человек',
+          groupSizeNum: 8,
+          rating: 4.6,
+          tags: ['лонгтейл', 'традиции', 'аутентично', 'рыбалка'],
+          activity: 'cultural',
           image: 'https://images.pexels.com/photos/176400/pexels-photo-176400.jpeg',
           includes: ['Трансфер из отеля', 'Обед', 'Лонгтейл лодка', 'Местный гид', 'Рыбалка', 'Традиционный опыт'],
           highlights: ['Традиционная лонгтейл лодка', 'Местная культура', 'Рыбалка с гидом', 'Аутентичный опыт', 'Фото в стиле бонда']
@@ -318,6 +413,77 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       ]
     }
   ];
+
+  // Get all tours from all categories for filtering
+  const allTours = categories.flatMap(category => 
+    category.tours.map(tour => ({
+      ...tour,
+      categoryId: category.id,
+      categoryTitle: category.title,
+      categoryRating: category.rating
+    }))
+  );
+
+  // Filter tours based on active filters and search
+  const filteredTours = allTours.filter(tour => {
+    // Search filter
+    if (searchTerm && !tour.title.toLowerCase().includes(searchTerm.toLowerCase()) && 
+        !tour.description.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        !tour.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))) {
+      return false;
+    }
+
+    // Price filter
+    if (activeFilters.priceRange !== 'all') {
+      const [min, max] = activeFilters.priceRange.split('-').map(Number);
+      if (max && (tour.priceNum < min || tour.priceNum > max)) return false;
+      if (!max && tour.priceNum < min) return false;
+    }
+
+    // Duration filter
+    if (activeFilters.duration !== 'all') {
+      const [min, max] = activeFilters.duration.split('-').map(Number);
+      if (max && (tour.durationNum < min || tour.durationNum > max)) return false;
+      if (!max && tour.durationNum < min) return false;
+    }
+
+    // Activity filter
+    if (activeFilters.activity !== 'all' && tour.activity !== activeFilters.activity) {
+      return false;
+    }
+
+    // Group size filter
+    if (activeFilters.groupSize !== 'all') {
+      const [min, max] = activeFilters.groupSize.split('-').map(Number);
+      if (max && (tour.groupSizeNum < min || tour.groupSizeNum > max)) return false;
+      if (!max && tour.groupSizeNum < min) return false;
+    }
+
+    // Rating filter
+    if (activeFilters.rating !== 'all') {
+      const minRating = Number(activeFilters.rating);
+      if (tour.rating < minRating) return false;
+    }
+
+    return true;
+  });
+
+  // Sort tours
+  const sortedTours = [...filteredTours].sort((a, b) => {
+    switch (sortBy) {
+      case 'price-low': return a.priceNum - b.priceNum;
+      case 'price-high': return b.priceNum - a.priceNum;
+      case 'duration': return a.durationNum - b.durationNum;
+      case 'rating': return b.rating - a.rating;
+      case 'popular':
+      default: return b.rating - a.rating;
+    }
+  });
+
+  const groupedTours = categories.map(category => ({
+    ...category,
+    tours: sortedTours.filter(tour => tour.categoryId === category.id)
+  })).filter(category => category.tours.length > 0);
 
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white" id="excursions">
@@ -332,9 +498,139 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
             Выберите идеальное приключение из нашей коллекции незабываемых экскурсий
           </p>
         </div>
+
+        {/* Search and Filter Section */}
+        <div className="mb-12 bg-white rounded-2xl shadow-lg p-6">
+          {/* Search Bar */}
+          <div className="flex flex-col lg:flex-row gap-4 mb-6">
+            <div className="flex-1">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Поиск экскурсий по названию, описанию или тегам..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:border-cyan-500 focus:outline-none text-lg"
+                />
+                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  🔍
+                </div>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="px-4 py-3 border border-gray-300 rounded-xl focus:border-cyan-500 focus:outline-none"
+              >
+                <option value="popular">По популярности</option>
+                <option value="price-low">По цене (возрастание)</option>
+                <option value="price-high">По цене (убывание)</option>
+                <option value="duration">По продолжительности</option>
+                <option value="rating">По рейтингу</option>
+              </select>
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className={`px-6 py-3 rounded-xl font-medium transition-all ${
+                  showFilters 
+                    ? 'bg-cyan-600 text-white' 
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                🎛️ Фильтры
+              </button>
+            </div>
+          </div>
+
+          {/* Filters */}
+          {showFilters && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 p-4 bg-gray-50 rounded-xl">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Цена</label>
+                <select
+                  value={activeFilters.priceRange}
+                  onChange={(e) => setActiveFilters({...activeFilters, priceRange: e.target.value})}
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:border-cyan-500"
+                >
+                  <option value="all">Любая цена</option>
+                  <option value="1000-2000">1,000 - 2,000฿</option>
+                  <option value="2000-3000">2,000 - 3,000฿</option>
+                  <option value="3000-4000">3,000 - 4,000฿</option>
+                  <option value="4000">4,000฿+</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Продолжительность</label>
+                <select
+                  value={activeFilters.duration}
+                  onChange={(e) => setActiveFilters({...activeFilters, duration: e.target.value})}
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:border-cyan-500"
+                >
+                  <option value="all">Любая</option>
+                  <option value="0-4">До 4 часов</option>
+                  <option value="4-8">4-8 часов</option>
+                  <option value="8-12">8-12 часов</option>
+                  <option value="12">12+ часов</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Тип активности</label>
+                <select
+                  value={activeFilters.activity}
+                  onChange={(e) => setActiveFilters({...activeFilters, activity: e.target.value})}
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:border-cyan-500"
+                >
+                  <option value="all">Все виды</option>
+                  <option value="water">Водные</option>
+                  <option value="adventure">Приключения</option>
+                  <option value="cultural">Культурные</option>
+                  <option value="cruise">Круизы</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Размер группы</label>
+                <select
+                  value={activeFilters.groupSize}
+                  onChange={(e) => setActiveFilters({...activeFilters, groupSize: e.target.value})}
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:border-cyan-500"
+                >
+                  <option value="all">Любой</option>
+                  <option value="0-8">До 8 человек</option>
+                  <option value="8-15">8-15 человек</option>
+                  <option value="15">15+ человек</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Рейтинг</label>
+                <select
+                  value={activeFilters.rating}
+                  onChange={(e) => setActiveFilters({...activeFilters, rating: e.target.value})}
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:border-cyan-500"
+                >
+                  <option value="all">Любой</option>
+                  <option value="4.5">4.5+ ⭐</option>
+                  <option value="4.7">4.7+ ⭐</option>
+                  <option value="4.8">4.8+ ⭐</option>
+                  <option value="4.9">4.9+ ⭐</option>
+                </select>
+              </div>
+            </div>
+          )}
+
+          {/* Results summary */}
+          <div className="mt-4 text-center text-gray-600">
+            Найдено {sortedTours.length} экскурсий из {allTours.length}
+            {searchTerm && <span> по запросу "{searchTerm}"</span>}
+          </div>
+        </div>
         
+        {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((category) => (
+          {groupedTours.map((category) => (
             <div 
               key={category.id}
               className="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 bg-white"
@@ -345,6 +641,22 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
                 style={{ backgroundImage: `url(${category.image})` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/60 transition-all duration-500"></div>
+                
+                {/* Rating badge */}
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center space-x-1">
+                  <span className="text-yellow-500">⭐</span>
+                  <span className="font-semibold text-gray-800">{category.rating}</span>
+                </div>
+
+                {/* Tags */}
+                <div className="absolute top-4 right-4 flex flex-wrap gap-1">
+                  {category.tags.slice(0, 2).map((tag, index) => (
+                    <span key={index} className="bg-cyan-500/80 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+                
                 <div className="absolute inset-0 flex items-end p-6">
                   <div className="text-white">
                     <h3 className="text-2xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300">
@@ -355,7 +667,7 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
                         {category.tours.length} экскурсий
                       </span>
                       <span className="text-cyan-300">
-                        от {Math.min(...category.tours.map(t => parseInt(t.price.replace(/[^\d]/g, ''))))}฿
+                        от {Math.min(...category.tours.map(t => t.priceNum))}฿
                       </span>
                     </div>
                   </div>
@@ -373,6 +685,30 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
             </div>
           ))}
         </div>
+
+        {/* No results message */}
+        {groupedTours.length === 0 && (
+          <div className="text-center py-12">
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">Экскурсии не найдены</h3>
+            <p className="text-gray-600 mb-6">Попробуйте изменить критерии поиска или фильтры</p>
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setActiveFilters({
+                  priceRange: 'all',
+                  duration: 'all',
+                  activity: 'all',
+                  groupSize: 'all',
+                  rating: 'all'
+                });
+              }}
+              className="bg-cyan-600 text-white px-6 py-3 rounded-lg hover:bg-cyan-700 transition-colors"
+            >
+              Сбросить фильтры
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
