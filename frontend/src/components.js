@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Main Header Component
-export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect }) => {
+export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect, selectedTour, selectedCategory }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId) => {
@@ -21,6 +21,15 @@ export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect }) => {
     }
   };
 
+  const getPageTitle = () => {
+    if (currentPage === 'tour' && selectedTour) {
+      return selectedTour.title;
+    } else if (currentPage === 'category' && selectedCategory) {
+      return selectedCategory.title;
+    }
+    return 'Экскурсии по Пхукету';
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4 py-4">
@@ -31,7 +40,7 @@ export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect }) => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-800">VIP TRAVEL</h1>
-              <p className="text-xs text-gray-600">Экскурсии по Пхукету</p>
+              <p className="text-xs text-gray-600">{getPageTitle()}</p>
             </div>
           </div>
           
