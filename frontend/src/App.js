@@ -456,14 +456,20 @@ const TourPage = ({ tour, category, onBackToMain, onBackToCategory, onBookTour }
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-800 mb-6">В стоимость включено:</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {tour.includes.map((item, index) => (
-                      <div key={index} className="flex items-center space-x-3 p-3 bg-cyan-50 rounded-lg">
-                        <div className="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <i className="fas fa-check text-white text-xs"></i>
+                    {tour.includes && tour.includes.length > 0 ? (
+                      tour.includes.map((item, index) => (
+                        <div key={index} className="flex items-center space-x-3 p-3 bg-cyan-50 rounded-lg">
+                          <div className="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs">✓</span>
+                          </div>
+                          <span className="text-gray-700">{item}</span>
                         </div>
-                        <span className="text-gray-700">{item}</span>
+                      ))
+                    ) : (
+                      <div className="col-span-2">
+                        <p className="text-gray-600 italic">Информация о включенных услугах будет добавлена позже.</p>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               )}
