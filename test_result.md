@@ -101,3 +101,85 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Сайт не доделан и поломан. Нужно изучить https://www.tisland.travel/thailand/phuket/excursions и добавить из него фильтры под наши экскурсии и все самое лучшее, только не добавлять экскурсии оттуда"
+
+frontend:
+  - task: "Исправить и доработать систему фильтров в ExcursionCategories"
+    implemented: false
+    working: false
+    file: "frontend/src/components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "Фильтры существуют в коде но не работают правильно, логика фильтрации не реализована"
+  
+  - task: "Добавить работающие фильтры по цене, продолжительности, типу активности, размеру группы, рейтингу"
+    implemented: false
+    working: false
+    file: "frontend/src/components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "Базовая структура фильтров есть, но не функционирует"
+
+  - task: "Реализовать поиск по названию и описанию туров"
+    implemented: false
+    working: false
+    file: "frontend/src/components.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "Поиск не реализован"
+
+  - task: "Система тегов с кликабельными тегами и фильтрацией"
+    implemented: false
+    working: false
+    file: "frontend/src/components.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "Теги есть в данных, но не кликабельные и не работают для фильтрации"
+
+  - task: "Улучшить UI/UX фильтров с адаптивной панелью и анимациями"
+    implemented: false
+    working: false
+    file: "frontend/src/components.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "UI фильтров требует доработки"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Исправить и доработать систему фильтров в ExcursionCategories"
+    - "Добавить работающие фильтры по цене, продолжительности, типу активности, размеру группы, рейтингу"
+    - "Реализовать поиск по названию и описанию туров"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: "Начинаю работу над доработкой системы фильтров для сайта ПХУКЕТ GO. Проанализировал донорский сайт tisland.travel и составил план доработки. Пользователь согласился с планом. Приступаю к реализации."
