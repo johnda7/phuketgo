@@ -801,15 +801,7 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
       </div>
     </section>
   );
-};import React, { useState } from 'react';
-
-// Import new modular components
-import MainHeader from './Layout/MainHeader';
-import ExcursionCategories from './Tours/ExcursionCategories';
-
-// Re-export for backward compatibility
-export { default as MainHeader } from './Layout/MainHeader';
-export { default as ExcursionCategories } from './Tours/ExcursionCategories';
+};
 
 // Hero Section Component
 export const HeroSection = ({ onCategorySelect }) => {
