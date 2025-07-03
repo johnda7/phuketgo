@@ -14,13 +14,36 @@ import {
   ThreeStepsSection,
   FloatingContactWidget,
   WeatherWidget,
-  CurrencyWidget
+  CurrencyWidget,
+  InteractiveMap,
+  ComparisonWidget,
+  ChatBot,
+  AvailabilityCalendar
 } from './components';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('main');
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedTour, setSelectedTour] = useState(null);
+  const [comparisonList, setComparisonList] = useState([]);
+  const [showComparison, setShowComparison] = useState(false);
+  const [showMap, setShowMap] = useState(false);
+  const [notifications, setNotifications] = useState([
+    {
+      id: 1,
+      type: 'discount',
+      title: 'Скидка 15%',
+      message: 'На экскурсии Пхи-Пхи до конца недели!',
+      icon: '🎉'
+    },
+    {
+      id: 2,
+      type: 'weather',
+      title: 'Отличная погода',
+      message: 'Идеальное время для морских экскурсий',
+      icon: '☀️'
+    }
+  ]);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -59,8 +82,48 @@ function App() {
     alert(`Заявка на экскурсию "${tour.title}" принята! Мы свяжемся с вами в ближайшее время.`);
   };
 
+  const addToComparison = (tour) => {
+    if (comparisonList.length < 3 && !comparisonList.find(t => t.title === tour.title)) {
+      setComparisonList([...comparisonList, tour]);
+    }
+  };
+
+  const removeFromComparison = (tourTitle) => {
+    setComparisonList(comparisonList.filter(tour => tour.title !== tourTitle));
+  };
+
+  const dismissNotification = (id) => {
+    setNotifications(notifications.filter(n => n.id !== id));
+  };
+
   return (
     <div className="App bg-gray-50">
+      {/* Notifications */}
+      <div className="fixed top-20 right-4 z-40 space-y-2">
+        {notifications.map((notification) => (
+          <div
+            key={notification.id}
+            className="bg-white border border-cyan-200 rounded-lg shadow-lg p-4 max-w-sm animate-fadeInUp"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex items-start space-x-3">
+                <div className="text-2xl">{notification.icon}</div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">{notification.title}</h4>
+                  <p className="text-sm text-gray-600">{notification.message}</p>
+                </div>
+              </div>
+              <button
+                onClick={() => dismissNotification(notification.id)}
+                className="text-gray-400 hover:text-gray-600 ml-2"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <MainHeader 
         currentPage={currentPage} 
         onBackToMain={handleBackToMain}
@@ -68,6 +131,9 @@ function App() {
         onPageSelect={handlePageSelect}
         selectedTour={selectedTour}
         selectedCategory={selectedCategory}
+        comparisonCount={comparisonList.length}
+        onShowComparison={() => setShowComparison(true)}
+        onShowMap={() => setShowMap(true)}
       />
       
       {currentPage === 'main' && (
@@ -75,11 +141,16 @@ function App() {
           <HeroSection onCategorySelect={handleCategorySelect} />
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-4 mb-8">
             <div className="lg:col-span-3">
-              <ExcursionCategories onCategorySelect={handleCategorySelect} />
+              <ExcursionCategories 
+                onCategorySelect={handleCategorySelect} 
+                onAddToComparison={addToComparison}
+                comparisonList={comparisonList}
+              />
             </div>
             <div className="space-y-6">
               <WeatherWidget />
               <CurrencyWidget />
+              <AvailabilityCalendar />
             </div>
           </div>
           <ThreeStepsSection />
@@ -106,6 +177,8 @@ function App() {
           category={selectedCategory} 
           onBackToMain={handleBackToMain}
           onTourSelect={handleTourSelect}
+          onAddToComparison={addToComparison}
+          comparisonList={comparisonList}
         />
       )}
       
@@ -116,11 +189,31 @@ function App() {
           onBackToMain={handleBackToMain}
           onBackToCategory={handleBackToCategory}
           onBookTour={handleBookTour}
+          onAddToComparison={addToComparison}
+          comparisonList={comparisonList}
         />
       )}
       
       <Footer />
       <FloatingContactWidget />
+      <ChatBot />
+      
+      {/* Comparison Widget */}
+      {showComparison && comparisonList.length > 0 && (
+        <ComparisonWidget 
+          tours={comparisonList}
+          onClose={() => setShowComparison(false)}
+          onRemoveTour={removeFromComparison}
+        />
+      )}
+      
+      {/* Interactive Map Modal */}
+      {showMap && (
+        <InteractiveMap 
+          onClose={() => setShowMap(false)}
+          tours={selectedCategory ? selectedCategory.tours : []}
+        />
+      )}
     </div>
   );
 }
