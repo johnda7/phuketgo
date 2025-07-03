@@ -755,19 +755,19 @@ export const FAQ = () => {
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">
               <button
-                className="w-full text-left p-6 bg-gradient-to-r from-emerald-50 to-teal-50 hover:from-emerald-100 hover:to-teal-100 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
+                className="w-full text-left p-6 bg-gradient-to-r from-cyan-50 to-teal-50 hover:from-cyan-100 hover:to-teal-100 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md"
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
               >
                 <div className="flex justify-between items-center">
                   <h3 className="font-semibold text-gray-800 pr-4 text-lg">{faq.question}</h3>
-                  <span className="text-emerald-600 text-2xl font-bold flex-shrink-0 transform transition-transform duration-300">
+                  <span className="text-cyan-600 text-2xl font-bold flex-shrink-0 transform transition-transform duration-300">
                     {activeIndex === index ? '−' : '+'}
                   </span>
                 </div>
               </button>
               
               {activeIndex === index && (
-                <div className="mt-2 p-6 bg-gray-50 rounded-xl animate-fadeIn border-l-4 border-emerald-500">
+                <div className="mt-2 p-6 bg-gray-50 rounded-xl animate-fadeIn border-l-4 border-cyan-500">
                   <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
                 </div>
               )}
