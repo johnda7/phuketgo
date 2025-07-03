@@ -547,45 +547,115 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
 
         {/* Search and Filter Section */}
         <div className="mb-12 bg-white rounded-2xl shadow-lg p-6">
-          {/* Search Bar */}
-          <div className="flex flex-col lg:flex-row gap-4 mb-6">
-            <div className="flex-1">
-              <div className="relative">
+          {/* Search and Sort */}
+          <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center mb-8">
+            {/* Search and Sort */}
+            <div className="flex-1 flex flex-col sm:flex-row gap-4">
+              <div className="flex-1 relative">
                 <input
                   type="text"
-                  placeholder="Поиск экскурсий по названию, описанию или тегам..."
+                  placeholder="Поиск экскурсий..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:border-cyan-500 focus:outline-none text-lg"
+                  className="w-full p-4 pl-12 border border-gray-300 rounded-xl focus:border-cyan-500 focus:outline-none transition-colors"
                 />
                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                   🔍
                 </div>
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+              
+              <div className="flex gap-2">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="p-4 border border-gray-300 rounded-xl focus:border-cyan-500 focus:outline-none min-w-[150px]"
+                >
+                  <option value="popular">По популярности</option>
+                  <option value="price-low">Сначала дешевые</option>
+                  <option value="price-high">Сначала дорогие</option>
+                  <option value="duration">По продолжительности</option>
+                  <option value="rating">По рейтингу</option>
+                </select>
+                
+                <button
+                  onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
+                  className="p-4 border border-gray-300 rounded-xl hover:border-cyan-500 transition-colors"
+                  title={viewMode === 'grid' ? 'Список' : 'Сетка'}
+                >
+                  {viewMode === 'grid' ? '☰' : '⊞'}
+                </button>
               </div>
             </div>
-            <div className="flex gap-4">
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-xl focus:border-cyan-500 focus:outline-none"
-              >
-                <option value="popular">По популярности</option>
-                <option value="price-low">По цене (возрастание)</option>
-                <option value="price-high">По цене (убывание)</option>
-                <option value="duration">По продолжительности</option>
-                <option value="rating">По рейтингу</option>
-              </select>
+
+            <div className="flex gap-2">
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all ${
+                className={`px-6 py-4 rounded-xl font-medium transition-all ${
                   showFilters 
                     ? 'bg-cyan-600 text-white' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-white border border-gray-300 text-gray-700 hover:border-cyan-500'
                 }`}
               >
-                🎛️ Фильтры
+                🔧 Фильтры {Object.values(activeFilters).filter(v => v !== 'all').length > 0 && 
+                  `(${Object.values(activeFilters).filter(v => v !== 'all').length})`}
               </button>
+              
+              {(Object.values(activeFilters).some(v => v !== 'all') || selectedTags.length > 0 || searchTerm) && (
+                <button
+                  onClick={clearAllFilters}
+                  className="px-6 py-4 bg-red-100 text-red-700 rounded-xl hover:bg-red-200 transition-colors font-medium"
+                >
+                  Сбросить
+                </button>
+              )}
             </div>
+          </div>
+
+          {/* Popular Tags */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">Популярные теги:</h3>
+            <div className="flex flex-wrap gap-2">
+              {allTags.slice(0, 10).map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() => handleTagClick(tag)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    selectedTags.includes(tag)
+                      ? 'bg-cyan-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-cyan-100 hover:text-cyan-700'
+                  }`}
+                >
+                  #{tag}
+                </button>
+              ))}
+            </div>
+            {selectedTags.length > 0 && (
+              <div className="mt-3">
+                <span className="text-sm text-gray-600">Выбранные теги: </span>
+                {selectedTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 text-sm mx-1"
+                  >
+                    #{tag}
+                    <button
+                      onClick={() => handleTagClick(tag)}
+                      className="ml-2 text-cyan-600 hover:text-cyan-800"
+                    >
+                      ✕
+                    </button>
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Filters */}
