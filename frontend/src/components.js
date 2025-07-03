@@ -257,7 +257,7 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           price: '2,100₽',
           duration: '6 часов',
           groupSize: 'До 8 человек',
-          image: 'https://images.unsplash.com/photo-1559972360-199685b3232f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxhY3RpdmUlMjByZWNyZWF0aW9uJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ0NDQ4fDA&ixlib=rb-4.1.0&q=85',
+          image: 'https://images.unsplash.com/photo-1646440912030-d58d2394b1cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxtYW5ncm92ZSUyMGtheWFraW5nJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ1Njk1fDA&ixlib=rb-4.1.0&q=85',
           includes: ['Трансфер из отеля', 'Обед', 'Каяки', 'Инструктор', 'Спасательные жилеты', 'Водонепроницаемые сумки'],
           highlights: ['Мангровые леса', 'Скрытые пещеры', 'Морские цыгане', 'Сталактиты', 'Дикая природа']
         },
@@ -267,19 +267,59 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
           price: '1,900₽',
           duration: '4 часа',
           groupSize: 'До 6 человек',
-          image: 'https://images.unsplash.com/photo-1559972360-199685b3232f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxhY3RpdmUlMjByZWNyZWF0aW9uJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ0NDQ4fDA&ixlib=rb-4.1.0&q=85',
+          image: 'https://images.pexels.com/photos/2041759/pexels-photo-2041759.jpeg',
           includes: ['Трансфер из отеля', 'Обед', 'Снаряжение', 'Инструктор', 'Страховка', 'Видеосъемка'],
           highlights: ['12 платформ', 'Полеты над джунглями', 'Спуск по канату', 'Подвесные мосты', 'Панорамные виды']
         },
         {
-          title: 'Дайвинг для начинающих',
-          description: 'Первое погружение с аквалангом в кристально чистых водах Андаманского моря. Откройте для себя подводный мир с его коралловыми рифами и тропическими рыбами.',
-          price: '3,500₽',
-          duration: '8 часов',
+          title: 'ATV сафари по джунглям',
+          description: 'Экстремальная поездка на квадроциклах по горным тропам и джунглям Пхукета. Преодолевайте препятствия и наслаждайтесь невероятными видами.',
+          price: '2,400₽',
+          duration: '5 часов',
+          groupSize: 'До 10 человек',
+          image: 'https://images.pexels.com/photos/2986403/pexels-photo-2986403.jpeg',
+          includes: ['Трансфер из отеля', 'Обед', 'Квадроцикл', 'Инструктор', 'Шлем', 'Страховка'],
+          highlights: ['Горные тропы', 'Джунгли', 'Водопады', 'Смотровые площадки', 'Экстремальные маршруты']
+        },
+        {
+          title: 'Скалолазание на известняковых скалах',
+          description: 'Покорите знаменитые известняковые скалы Таиланда с видом на Андаманское море. Подходит как для новичков, так и для опытных скалолазов.',
+          price: '2,800₽',
+          duration: '6 часов',
           groupSize: 'До 4 человек',
-          image: 'https://images.unsplash.com/photo-1559972360-199685b3232f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxhY3RpdmUlMjByZWNyZWF0aW9uJTIwVGhhaWxhbmR8ZW58MHx8fHwxNzUxNTQ0NDQ4fDA&ixlib=rb-4.1.0&q=85',
-          includes: ['Трансфер из отеля', 'Обед', 'Дайвинг оборудование', 'Инструктор PADI', 'Сертификат', '2 погружения'],
-          highlights: ['Коралловые рифы', 'Тропические рыбы', 'Подводные скалы', 'Сертификат PADI', 'Профессиональное оборудование']
+          image: 'https://images.unsplash.com/photo-1522079803432-e0b7649dc1de?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxyb2NrJTIwY2xpbWJpbmclMjBUaGFpbGFuZHxlbnwwfHx8fDE3NTE1NDU1OTB8MA&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Обед', 'Снаряжение для скалолазания', 'Инструктор', 'Страховка', 'Фотосъемка'],
+          highlights: ['Известняковые скалы', 'Виды на море', 'Разные уровни сложности', 'Профессиональное снаряжение', 'Сертификат']
+        },
+        {
+          title: 'Парасейлинг над Пхукетом',
+          description: 'Парите над бирюзовыми водами Андаманского моря на высоте 150 метров. Незабываемые виды на остров и соседние острова с высоты птичьего полета.',
+          price: '1,600₽',
+          duration: '3 часа',
+          groupSize: 'До 2 человек',
+          image: 'https://images.unsplash.com/photo-1681065761864-8b4b4cfe441a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxwYXJhc2FpbGluZyUyMFBodWtldHxlbnwwfHx8fDE3NTE1NDU3NTF8MA&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Снаряжение', 'Инструктор', 'Страховка', 'Фото и видео', 'Сертификат'],
+          highlights: ['Полет на высоте 150м', 'Панорамные виды', 'Безопасное снаряжение', 'Профессиональные пилоты', 'Незабываемые эмоции']
+        },
+        {
+          title: 'Пляжный волейбол и водные виды спорта',
+          description: 'Активный день на лучших пляжах Пхукета с играми в волейбол, водными лыжами, вейкбордингом и другими водными развлечениями.',
+          price: '1,400₽',
+          duration: '6 часов',
+          groupSize: 'До 15 человек',
+          image: 'https://images.unsplash.com/photo-1726509911232-3f9e75a33219?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHZvbGxleWJhbGwlMjBUaGFpbGFuZHxlbnwwfHx8fDE3NTE1NDU3MjV8MA&ixlib=rb-4.1.0&q=85',
+          includes: ['Трансфер из отеля', 'Обед', 'Спортивное оборудование', 'Инструктор', 'Напитки', 'Пляжные полотенца'],
+          highlights: ['Пляжный волейбол', 'Водные лыжи', 'Вейкбординг', 'Команда аниматоров', 'Пляжные игры']
+        },
+        {
+          title: 'Треккинг и хайкинг по горам',
+          description: 'Пешие походы по горным тропам Пхукета с посещением скрытых водопадов, смотровых площадок и встречей с дикой природой.',
+          price: '1,800₽',
+          duration: '7 часов',
+          groupSize: 'До 12 человек',
+          image: 'https://images.pexels.com/photos/1697496/pexels-photo-1697496.jpeg',
+          includes: ['Трансфер из отеля', 'Обед', 'Гид-натуралист', 'Треккинговые палки', 'Вода', 'Аптечка'],
+          highlights: ['Горные тропы', 'Скрытые водопады', 'Смотровые площадки', 'Дикие животные', 'Тропические растения']
         }
       ]
     },
