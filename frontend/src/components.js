@@ -134,22 +134,22 @@ export const HeroSection = ({ onCategorySelect }) => {
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <div className="animate-fadeInUp">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-            <span className="bg-gradient-to-r from-white via-emerald-100 to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
               ПХУКЕТ GO
             </span>
           </h1>
           <p className="text-xl md:text-3xl mb-8 text-gray-100 font-light leading-relaxed">
             Откройте для себя райские уголки Таиланда<br />
-            <span className="text-emerald-300">вместе с нами</span>
+            <span className="text-cyan-300">вместе с нами</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
               onClick={scrollToExcursions}
-              className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all transform hover:scale-105 shadow-2xl"
+              className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-cyan-600 hover:to-teal-600 transition-all transform hover:scale-105 shadow-2xl"
             >
               ВЫБРАТЬ ЭКСКУРСИЮ
             </button>
-            <div className="text-emerald-200 text-sm">
+            <div className="text-cyan-200 text-sm">
               🌟 Более 10,000 довольных туристов
             </div>
           </div>
