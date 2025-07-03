@@ -198,24 +198,27 @@ function App() {
       
       <Footer />
       <FloatingContactWidget />
-      <ChatBot />
+      {/* ChatBot component is not defined */}
+      {/* <ChatBot /> */}
       
       {/* Comparison Widget */}
-      {showComparison && comparisonList.length > 0 && (
+      {/* ComparisonWidget component is not defined */}
+      {/* {showComparison && comparisonList.length > 0 && (
         <ComparisonWidget 
           tours={comparisonList}
           onClose={() => setShowComparison(false)}
           onRemoveTour={removeFromComparison}
         />
-      )}
+      )} */}
       
       {/* Interactive Map Modal */}
-      {showMap && (
+      {/* InteractiveMap component is not defined */}
+      {/* {showMap && (
         <InteractiveMap 
           onClose={() => setShowMap(false)}
           tours={selectedCategory ? selectedCategory.tours : []}
         />
-      )}
+      )} */}
     </div>
   );
 }
