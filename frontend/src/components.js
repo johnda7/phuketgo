@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
 
 // Main Header Component
-export const MainHeader = ({ currentPage, onBackToMain }) => {
+export const MainHeader = ({ currentPage, onBackToMain, onCategorySelect }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollToSection = (sectionId) => {
+    if (currentPage !== 'main') {
+      onBackToMain();
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={onBackToMain}>
             <div className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-lg">🌴</span>
             </div>
@@ -25,13 +42,36 @@ export const MainHeader = ({ currentPage, onBackToMain }) => {
             </div>
             
             <nav className="hidden md:flex items-center space-x-6">
-              <a href="#excursions" className="text-gray-700 hover:text-emerald-600 transition-colors">Экскурсии</a>
-              <a href="#prices" className="text-gray-700 hover:text-emerald-600 transition-colors">Цены</a>
-              <a href="#reviews" className="text-gray-700 hover:text-emerald-600 transition-colors">Отзывы</a>
-              <a href="#contacts" className="text-gray-700 hover:text-emerald-600 transition-colors">О компании</a>
+              <button 
+                onClick={() => scrollToSection('excursions')}
+                className="text-gray-700 hover:text-emerald-600 transition-colors"
+              >
+                Экскурсии
+              </button>
+              <button 
+                onClick={() => scrollToSection('faq')}
+                className="text-gray-700 hover:text-emerald-600 transition-colors"
+              >
+                Цены
+              </button>
+              <button 
+                onClick={() => scrollToSection('reviews')}
+                className="text-gray-700 hover:text-emerald-600 transition-colors"
+              >
+                Отзывы
+              </button>
+              <button 
+                onClick={() => scrollToSection('contacts')}
+                className="text-gray-700 hover:text-emerald-600 transition-colors"
+              >
+                О компании
+              </button>
             </nav>
             
-            <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors">
+            <button 
+              onClick={() => scrollToSection('contacts')}
+              className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
+            >
               ЗАКАЗАТЬ
             </button>
           </div>
@@ -42,7 +82,14 @@ export const MainHeader = ({ currentPage, onBackToMain }) => {
 };
 
 // Hero Section Component
-export const HeroSection = () => {
+export const HeroSection = ({ onCategorySelect }) => {
+  const scrollToExcursions = () => {
+    const element = document.getElementById('excursions');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center">
       <div 
@@ -55,13 +102,16 @@ export const HeroSection = () => {
       </div>
       
       <div className="relative z-10 text-center text-white px-4">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fadeInUp">
           ЭКСКУРСИИ НА ПХУКЕТЕ
         </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fadeInUp">
           Откройте для себя райские уголки Таиланда вместе с нами
         </p>
-        <button className="bg-emerald-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-700 transition-colors">
+        <button 
+          onClick={scrollToExcursions}
+          className="bg-emerald-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-700 transition-colors animate-fadeInUp"
+        >
           ВЫБРАТЬ ЭКСКУРСИЮ
         </button>
       </div>
