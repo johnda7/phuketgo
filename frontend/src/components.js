@@ -362,11 +362,11 @@ export const ExcursionCategories = ({ onCategorySelect }) => {
                 </div>
                 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-emerald-600/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-cyan-500/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center text-white">
                     <div className="text-4xl mb-4">🌊</div>
                     <p className="text-lg font-semibold">Смотреть все экскурсии</p>
-                    <div className="mt-2 text-emerald-200">→</div>
+                    <div className="mt-2 text-cyan-200">→</div>
                   </div>
                 </div>
               </div>
