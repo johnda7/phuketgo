@@ -986,22 +986,30 @@ export const Footer = () => {
               <p className="flex items-center">
                 <span className="mr-2">📍</span> Пхукет, Таиланд
               </p>
+              <a 
+                href="https://t.me/+qkhh55Ozg6gxY2Y1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
+              >
+                <span className="mr-2">💬</span> Telegram канал
+              </a>
             </div>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4 text-lg">Популярные экскурсии</h4>
             <div className="space-y-2 text-gray-400">
-              <p className="hover:text-emerald-400 transition-colors cursor-pointer">Острова Пхи-Пхи</p>
-              <p className="hover:text-emerald-400 transition-colors cursor-pointer">Остров Джеймса Бонда</p>
-              <p className="hover:text-emerald-400 transition-colors cursor-pointer">Симиланские острова</p>
-              <p className="hover:text-emerald-400 transition-colors cursor-pointer">Дайвинг и снорклинг</p>
+              <p className="hover:text-cyan-400 transition-colors cursor-pointer">Острова Пхи-Пхи</p>
+              <p className="hover:text-cyan-400 transition-colors cursor-pointer">Остров Джеймса Бонда</p>
+              <p className="hover:text-cyan-400 transition-colors cursor-pointer">Симиланские острова</p>
+              <p className="hover:text-cyan-400 transition-colors cursor-pointer">Дайвинг и снорклинг</p>
             </div>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4 text-lg">Следите за нами</h4>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-4">
               <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-700 transition-colors">
                 <span className="text-white">f</span>
               </div>
@@ -1011,6 +1019,11 @@ export const Footer = () => {
               <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-700 transition-colors">
                 <span className="text-white">💬</span>
               </div>
+            </div>
+            <div className="text-sm text-gray-400">
+              <p>⭐ Рейтинг: 4.9/5</p>
+              <p>👥 10,000+ клиентов</p>
+              <p>🏆 Лицензия 12/03586</p>
             </div>
           </div>
         </div>
