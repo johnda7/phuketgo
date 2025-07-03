@@ -678,7 +678,7 @@ export const ReviewsPage = ({ onBackToMain }) => {
                 </div>
                 
                 <div className="mb-3">
-                  <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-medium">
                     {review.tour}
                   </span>
                 </div>
